@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Primary - Orange from Figma */
+    --primary: 28 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light orange/cream */
+    --secondary: 35 100% 96%;
+    --secondary-foreground: 28 100% 40%;
+
+    --muted: 35 30% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 28 100% 95%;
+    --accent-foreground: 28 100% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 90%;
+    --input: 35 20% 90%;
+    --ring: 28 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom design tokens */
+    --header-bg: 0 0% 100%;
+    --footer-bg: 255 10% 10%;
+    --footer-foreground: 0 0% 100%;
+    
+    --banner-orange: 28 100% 50%;
+    --banner-gradient: linear-gradient(135deg, hsl(28, 100%, 50%) 0%, hsl(35, 100%, 55%) 100%);
+    
+    --price-color: 28 100% 45%;
+    --sale-badge: 28 100% 50%;
+    --hot-badge: 120 60% 45%;
+    --new-badge: 200 100% 50%;
+    
+    --category-hover: 28 100% 95%;
+    
+    /* Trust badges */
+    --trust-bg: 0 0% 98%;
+    --trust-border: 28 100% 50%;
+
+    /* Newsletter section */
+    --newsletter-overlay: linear-gradient(to right, hsla(28, 80%, 35%, 0.9), hsla(28, 80%, 45%, 0.7));
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 13%;
+    --sidebar-primary: 28 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 28 100% 95%;
+    --sidebar-accent-foreground: 28 100% 40%;
+    --sidebar-border: 35 20% 90%;
+    --sidebar-ring: 28 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 28 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 28 100% 20%;
+    --accent-foreground: 28 100% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 28 100% 50%;
+    
+    --sidebar-background: 0 0% 13%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 28 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 28 100% 20%;
+    --sidebar-accent-foreground: 28 100% 70%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 28 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-6 py-2.5 font-medium transition-all duration-200;
+  }
+  
+  .btn-outline-primary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-md px-6 py-2.5 font-medium transition-all duration-200;
+  }
+  
+  /* Product card styles */
+  .product-card {
+    @apply bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-border;
+  }
+  
+  .product-card-image {
+    @apply relative aspect-square overflow-hidden bg-muted;
+  }
+  
+  .product-badge {
+    @apply absolute top-3 left-3 px-2 py-1 text-xs font-semibold rounded text-white;
+  }
+  
+  .product-badge-hot {
+    @apply bg-green-500;
+  }
+  
+  .product-badge-sale {
+    @apply bg-primary;
+  }
+  
+  .product-badge-new {
+    @apply bg-blue-500;
+  }
+  
+  /* Category card */
+  .category-card {
+    @apply flex flex-col items-center p-4 rounded-lg bg-card hover:bg-accent transition-colors cursor-pointer text-center;
+  }
+  
+  /* Price styling */
+  .price {
+    @apply text-primary font-semibold;
+  }
+  
+  .price-original {
+    @apply text-muted-foreground line-through text-sm;
+  }
+  
+  /* Section styling */
+  .section-title {
+    @apply text-2xl md:text-3xl font-semibold text-foreground;
+  }
+  
+  .section-subtitle {
+    @apply text-primary font-medium text-sm uppercase tracking-wider;
+  }
+  
+  /* Trust badges */
+  .trust-badge {
+    @apply flex flex-col items-center p-6 rounded-xl border border-primary/20 bg-white shadow-sm;
+  }
+  
+  /* Newsletter section */
+  .newsletter-section {
+    @apply relative bg-cover bg-center py-16 md:py-20;
+  }
+  
+  .newsletter-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-orange-600/90 to-orange-500/80;
+  }
+  
+  /* Header navigation */
+  .nav-link {
+    @apply text-foreground hover:text-primary font-medium transition-colors;
+  }
+  
+  .nav-link-active {
+    @apply text-primary;
+  }
+  
+  /* Decorative script font */
+  .script-font {
+    font-family: 'Great Vibes', cursive;
+  }
+  
+  /* Footer styling */
+  .footer-section {
+    @apply bg-gray-900 text-white pt-12 pb-6;
+  }
+  
+  .footer-link {
+    @apply text-gray-400 hover:text-primary transition-colors text-sm;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    @apply flex items-center gap-2 text-sm text-muted-foreground;
+  }
+  
+  .breadcrumb-separator {
+    @apply text-muted-foreground;
+  }
+  
+  /* Hero slider */
+  .hero-slider {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+  
+  /* Tab filter buttons */
+  .filter-tab {
+    @apply px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-transparent rounded-full;
+  }
+  
+  .filter-tab-active {
+    @apply text-primary border-primary bg-primary/5;
+  }
+  
+  /* Add to cart button */
+  .add-to-cart-btn {
+    @apply flex items-center gap-1 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded border border-primary text-sm font-medium transition-all;
+  }
+  
+  /* Stats section */
+  .stats-item {
+    @apply text-center text-white;
+  }
+  
+  .stats-number {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+  
+  .stats-label {
+    @apply text-sm md:text-base opacity-90;
+  }
+  
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all;
+  }
+  
+  /* Contact info item */
+  .contact-info-item {
+    @apply flex items-start gap-3 text-foreground;
+  }
+  
+  /* Category sidebar item */
+  .category-sidebar-item {
+    @apply flex items-center justify-between py-2 px-3 rounded-lg hover:bg-accent cursor-pointer transition-colors;
+  }
+  
+  .category-sidebar-item-active {
+    @apply bg-primary text-white hover:bg-primary;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}

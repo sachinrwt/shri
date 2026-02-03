@@ -40,9 +40,11 @@ const Header = () => {
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
+            <img 
+              src="/apple-touch-icon.png" 
+              alt="Shri Sai Marketing Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-semibold text-foreground">
               shri sai <span className="text-primary">marketing</span>
             </span>

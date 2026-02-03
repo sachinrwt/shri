@@ -8,7 +8,7 @@ import poojaItems from "@/assets/categories/pooja-items.jpg";
 import candle from "@/assets/categories/candle.jpg";
 import gangaJal from "@/assets/products/ganga-jal.jpg";
 import rotoFabric from "@/assets/products/roto-fabric.jpg";
-import chandan from "@/assets/products/chandan-powder.jpg";
+import chandan from "@/assets/products/chandan-powder.jpeg";
 import mukut from "@/assets/products/laddu-gopal-mukut.jpg";
 
 const FeaturedCategories = () => {

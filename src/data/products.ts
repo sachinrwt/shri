@@ -6,7 +6,9 @@ import ladduGopalDress2 from "@/assets/products/laddu-gopal-dress-2.jpg";
 import ramMandirPoshak from "@/assets/products/ram-mandir-poshak.jpg";
 import silkKhatuShyam from "@/assets/products/silk-khatu-shyam.jpg";
 import ladduGopalMukut from "@/assets/products/laddu-gopal-mukut.jpg";
-import ishauraFreshener from "@/assets/products/ishaura-freshener.jpg";
+import ishauraFreshener from "@/assets/products/ishaura-freshener.jpeg";
+import ishauraFreshener2 from "@/assets/products/ishaura-freshener(1).jpeg";
+import ishauraFreshener3 from "@/assets/products/ishaura-freshener(2).jpeg";
 import guruNanakDashboard from "@/assets/products/guru-nanak-dashboard.jpg";
 import khatuShyamDashboard from "@/assets/products/khatu-shyam-baba-dashboard.jpg";
 import saiBabaDashboard from "@/assets/products/sai-baba-dashboard.jpg";
@@ -19,14 +21,23 @@ import saiBabaPagdi from "@/assets/products/sai-baba-pagdi.jpg";
 import mataDress from "@/assets/products/mata-dress.jpg";
 import shivParvatiDashboard from "@/assets/products/shiv-parvati-dashboard.jpg";
 import bhageshwarDashboard from "@/assets/products/bhageshwar-dashboard.jpg";
-import ishauraVentClip from "@/assets/products/ishaura-vent-clip.jpg";
+import ishauraVentClip from "@/assets/products/ishaura-vent-clip.jpeg";
+import ishauraVentClip2 from "@/assets/products/ishaura-vent-clip(1).jpeg";
+import ishauraVentClip3 from "@/assets/products/ishaura-vent-clip(2).jpg";
 import ishauraAirFreshener from "@/assets/products/ishaura-air-freshener.jpg";
 import kesarChandan from "@/assets/products/kesar-chandan.jpg";
-import ashtagandhaPowder from "@/assets/products/ashtagandha-powder.jpg";
-import chandanPowder from "@/assets/products/chandan-powder.jpg";
+import ashtagandhaPowder from "@/assets/products/ashtagandha-powder.jpeg";
+import ashtagandhaPowder2 from "@/assets/products/ashtagandha-powder(1).jpeg";
+import ashtagandhaPowder3 from "@/assets/products/ashtagandha-powder(2).jpeg";
+import chandanPowder from "@/assets/products/chandan-powder.jpeg";
+import chandanPowder2 from "@/assets/products/chandan-powder(1).jpeg";
+import chandanPowder3 from "@/assets/products/chandan-powder(2).jpeg";
 import kumkumSindur from "@/assets/products/kumkum-sindur.jpg";
 import jaiShriShyamTilak from "@/assets/products/jai-shri-shyam-tilak.jpg";
 import gangaJal from "@/assets/products/ganga-jal.jpg";
+import gangaJal2 from "@/assets/products/ganga-jal(1).jpeg";
+
+
 import rotoFabric from "@/assets/products/roto-fabric.jpg";
 
 export interface ProductDescription {
@@ -902,7 +913,7 @@ export const products: Product[] = [
     unit: "Jar",
     category: "Pooja Items",
     subcategory: "Chandan & Tilak",
-    images: [kesarChandan, chandanPowder, ashtagandhaPowder],
+    images: [ashtagandhaPowder, ashtagandhaPowder2, ashtagandhaPowder3],
     badge: "hot",
     rating: 4.8,
     reviews: 67,
@@ -996,23 +1007,22 @@ export const products: Product[] = [
     unit: "Pack",
     category: "Pooja Items",
     subcategory: "Chandan & Tilak",
-    images: [chandanPowder, kesarChandan, ashtagandhaPowder],
+    images: [chandanPowder,chandanPowder2, chandanPowder3],
     badge: "8%",
     rating: 4.6,
-    reviews: 38,
+    reviews: 38,  
     sku: "SSM-PI-003",
-    shortDescription: "Temple-grade Ashtagandha Chandan powder with authentic sandalwood base. The eight divine fragrances create an atmosphere of sanctity and peace.",
+    shortDescription: "Premium temple-grade Chandan powder for tilak and pooja. Authentic sandalwood fragrance with saffron infusion for divine rituals.",
     fullDescription: {
       intro: [
-        "Elevate your worship with this temple-grade Ashtagandha Chandan powder, crafted to meet the exacting standards of traditional Hindu temples. The blend of eight sacred fragrances (Ashtagandha) with pure sandalwood creates an offering worthy of the divine.",
-        "In Sanskrit, 'Ashta' means eight and 'Gandha' means fragrance. This sacred blend combines eight aromatic substances that have been used in Hindu worship since Vedic times. Each fragrance is believed to please different aspects of the divine, making this blend perfect for comprehensive worship.",
-        "The sandalwood base provides the classic cooling sensation and divine fragrance associated with Hindu rituals, while the additional seven ingredients add layers of spiritual significance. The result is a chandan that transforms your pooja space into a sacred temple."
+        "Experience the divine fragrance of pure sandalwood blended with saffron in this premium chandan powder. Used for centuries in Hindu temples and homes, this tilak powder connects you with the ancient traditions of Vedic worship.",
+        "The sandalwood base provides the classic cooling sensation and divine fragrance associated with Hindu rituals, while the saffron adds a subtle floral note. The result is a chandan that transforms your pooja space into a sacred temple."
       ],
       packaging: {
-        type: "Resealable standup pouch",
-        piecesPerCarton: "60 packs per carton",
-        moq: "30 Packs",
-        handling: "Vacuum-sealed for freshness."
+        type: "Airtight glass jar with screw lid",
+        piecesPerCarton: "48 jars per carton",
+        moq: "30 Jars",
+        handling: "Protected packaging to preserve fragrance."
       },
       suggestedUse: [
         "Temple pooja and rituals",
@@ -1134,7 +1144,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Pooja Items",
     subcategory: "Holy Water",
-    images: [gangaJal, kesarChandan, kumkumSindur],
+    images: [gangaJal, gangaJal2],
     badge: "9%",
     rating: 4.9,
     reviews: 234,
@@ -1183,7 +1193,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Fresheners",
     subcategory: "Room Fresheners",
-    images: [ishauraFreshener, ishauraAirFreshener, ishauraVentClip],
+    images: [ishauraFreshener, ishauraFreshener2, ishauraFreshener3],
     badge: "hot",
     rating: 4.5,
     reviews: 78,
@@ -1229,7 +1239,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Fresheners",
     subcategory: "Car & Wardrobe",
-    images: [ishauraAirFreshener, ishauraFreshener, ishauraVentClip],
+    images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
     badge: "new",
     rating: 4.4,
     reviews: 45,
@@ -1275,7 +1285,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Fresheners",
     subcategory: "Car",
-    images: [ishauraVentClip, ishauraFreshener, ishauraAirFreshener],
+    images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
     badge: "8%",
     rating: 4.3,
     reviews: 34,

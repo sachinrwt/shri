@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Search, Heart, ShoppingCart, User, Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,29 +9,38 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useWishlist } from "@/context/WishlistContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { wishlistIds } = useWishlist();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Shop", path: "/shop", hasDropdown: true },
-    { name: "Blog", path: "/blog", hasDropdown: true },
-    { name: "Pages", path: "/pages", hasDropdown: true },
+    { name: "Shop", path: "/shop"},
     { name: "Contact", path: "/contact" },
   ];
 
   const categories = [
-    "God Statue Dress",
-    "Car Dashboard Idol",
+    "God Statues",
+    "Car Dashboard Idols",
     "Pooja Items",
-    "Candle",
-    "Laddu Gopal Mukut",
+    "Deity Dresses",
+    "Fresheners",
   ];
+
+  const handleSearch = () => {
+    const q = searchQuery.trim();
+    if (!q) return;
+    navigate(`/shop?q=${encodeURIComponent(q)}`);
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
@@ -56,10 +65,16 @@ const Header = () => {
               <Input
                 type="text"
                 placeholder="Search for products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleSearch();
+                }}
                 className="w-full pl-4 pr-24 py-2 rounded-lg border border-border"
               />
               <Button
                 size="sm"
+                onClick={handleSearch}
                 className="absolute right-1 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary/90 text-white"
               >
                 Search
@@ -69,20 +84,24 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className="flex items-center gap-4">
-            <button className="hidden sm:flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+            <Link
+              to="/wishlist"
+              className="hidden sm:flex items-center gap-2 text-foreground hover:text-primary transition-colors relative"
+            >
               <Heart className="w-5 h-5" />
               <span className="hidden lg:inline text-sm">Wishlist</span>
-            </button>
+              {wishlistIds.length > 0 && (
+                <span className="absolute -top-2 -right-3 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
+                  {wishlistIds.length}
+                </span>
+              )}
+            </Link>
             <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors relative">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
                 0
               </span>
               <span className="hidden lg:inline text-sm">Cart</span>
-            </button>
-            <button className="hidden sm:flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-              <User className="w-5 h-5" />
-              <span className="hidden lg:inline text-sm">Account</span>
             </button>
             
             {/* Mobile Menu Toggle */}
@@ -112,58 +131,28 @@ const Header = () => {
               <DropdownMenuContent className="w-56">
                 {categories.map((category) => (
                   <DropdownMenuItem key={category} asChild>
-                    <Link to="/shop">{category}</Link>
+                    <Link to={`/shop?category=${encodeURIComponent(category)}`}>{category}</Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Hot Deals */}
-            <Link
-              to="/shop"
-              className="hidden sm:flex items-center gap-2 text-foreground hover:text-primary font-medium"
-            >
-              <span className="text-lg">🔥</span>
-              Hot Deals
-            </Link>
+           
 
             {/* Navigation Links - Desktop */}
             <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
-                <div key={item.name} className="relative group">
-                  {item.hasDropdown ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button
-                          className={`flex items-center gap-1 font-medium transition-colors ${
-                            isActive(item.path)
-                              ? "text-primary"
-                              : "text-foreground hover:text-primary"
-                          }`}
-                        >
-                          {item.name}
-                          <ChevronDown className="w-4 h-4" />
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent>
-                        <DropdownMenuItem asChild>
-                          <Link to={item.path}>{item.name}</Link>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`font-medium transition-colors ${
-                        isActive(item.path)
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`font-medium transition-colors ${
+                    isActive(item.path)
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
               ))}
             </div>
 
@@ -190,10 +179,16 @@ const Header = () => {
               <Input
                 type="text"
                 placeholder="Search for products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleSearch();
+                }}
                 className="w-full pl-4 pr-12"
               />
               <Button
                 size="sm"
+                onClick={handleSearch}
                 className="absolute right-1 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary/90"
               >
                 <Search className="w-4 h-4" />

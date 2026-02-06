@@ -10,10 +10,10 @@ import contactGanesh from "@/assets/contact/ganesh-contact.jpg";
 
 const Contact = () => {
   const inquiryTypes = [
-    { number: "01", title: "Visit Feedback", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." },
-    { number: "02", title: "Employer Services", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." },
-    { number: "03", title: "Billing Inquiries", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." },
-    { number: "04", title: "General Inquiries", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." },
+    { number: "01", title: "Visit Feedback", description: "Share your experience with Shri Sai Marketing and help us improve our services. Your feedback helps us serve devotees better with quality products and reliable support." },
+    { number: "02", title: "Product & Order Support", description: "Get quick assistance related to product details, availability, pricing, bulk orders, and order status for all our devotional and pooja items." },
+    { number: "03", title: "Billing & Product support", description: "Contact us for any questions related to payments, invoices, refunds, or order confirmations to ensure a smooth and secure shopping experience." },
+    { number: "04", title: "General Inquiries", description: "Reach out to us for any general questions about our products, services, store location, or devotional requirements. We are happy to guide you." },
   ];
 
   return (
@@ -33,10 +33,10 @@ const Contact = () => {
                 Let us know how we can help you
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              At Shri Sai Marketing, we are dedicated to helping you find authentic devotional and pooja essentials for your daily worship and special religious occasions. Whether you are looking for idols, pooja samagri, car dashboard idols, dresses for deities, or spiritual accessories, our team is always ready to assist you with the right guidance and support.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ const Contact = () => {
             {/* Map */}
             <div className="h-80 rounded-xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9044647073!2d77.13361581508!3d28.692139982383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03d9c2f3c7a3%3A0x8f3b3c7a3c7a3c7a!2sPitampura%2C%20Delhi!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=shri%20sai%20marketing%20au-6%2C%20pitampura%20new%20delhi%20-%20110088%2C%20delhi%2C%20india&t=k&z=14&ie=UTF8&iwloc=B&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

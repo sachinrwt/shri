@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Layout from "@/components/layout/Layout";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import ProductCard from "@/components/shared/ProductCard";
@@ -12,42 +12,92 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { products, getCategories, getTopSellingProducts } from "@/data/products";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 
 const Shop = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high" | "newest">("featured");
+  
+  // Read filters from URL params on mount and when they change
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    } else {
+      setSelectedCategory(null);
+    }
+
+    const qParam = searchParams.get("q");
+    setSearchQuery(qParam ?? "");
+  }, [searchParams]);
+  
+  // Update URL when category is selected from sidebar
+  const handleCategorySelect = (category: string | null) => {
+    setSelectedCategory(category);
+    const params = new URLSearchParams(searchParams);
+    if (category) params.set("category", category);
+    else params.delete("category");
+    navigate(`/shop${params.toString() ? `?${params.toString()}` : ""}`, {
+      replace: true,
+    });
+  };
   
   const categories = getCategories();
   const newProducts = getTopSellingProducts(3);
 
   const filterTags = ["Statue", "Idols", "Dress", "Candle", "Mukut"];
 
-  // Filter products based on selected category
-  const filteredProducts = selectedCategory 
-    ? products.filter(p => p.category === selectedCategory)
-    : products;
+  const filteredProducts = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return products.filter((p) => {
+      const matchesQuery = q
+        ? `${p.name} ${p.category} ${p.subcategory ?? ""} ${p.shortDescription}`
+            .toLowerCase()
+            .includes(q)
+        : true;
+
+      // If searching, don't further restrict by category to avoid hiding items from other categories.
+      if (q) return matchesQuery;
+
+      // Without a query, respect the selected category filter.
+      const matchesCategory = selectedCategory ? p.category === selectedCategory : true;
+      return matchesCategory && matchesQuery;
+    });
+  }, [searchQuery, selectedCategory]);
+
+  const sortedProducts = useMemo(() => {
+    const list = [...filteredProducts];
+    switch (sortBy) {
+      case "price-low":
+        return list.sort((a, b) => a.price - b.price);
+      case "price-high":
+        return list.sort((a, b) => b.price - a.price);
+      case "newest":
+        // No explicit createdAt in data; prioritize items marked as "new" then fallback to name.
+        return list.sort((a, b) => {
+          const aNew = a.badge === "new" ? 1 : 0;
+          const bNew = b.badge === "new" ? 1 : 0;
+          if (aNew !== bNew) return bNew - aNew;
+          return a.name.localeCompare(b.name);
+        });
+      case "featured":
+      default:
+        return list; // Keep original ordering
+    }
+  }, [filteredProducts, sortBy]);
 
   return (
     <Layout>
       {/* Page Header */}
-      <div className="bg-primary/10 py-8 mb-8">
+      <div className="bg-primary/10 pt-8 mb-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="text-3xl font-bold text-foreground mb-2">Items</h1>
               <Breadcrumb items={[{ label: "Shop", path: "/shop" }, { label: "Items" }]} />
-            </div>
-
-            {/* Filter Tags */}
-            <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
-              {filterTags.map((tag) => (
-                <button
-                  key={tag}
-                  className="px-4 py-2 rounded-full border border-border bg-white text-sm hover:border-primary hover:text-primary transition-colors"
-                >
-                  × {tag}
-                </button>
-              ))}
             </div>
           </div>
         </div>
@@ -63,7 +113,7 @@ const Shop = () => {
               <ul className="space-y-2">
                 <li>
                   <button
-                    onClick={() => setSelectedCategory(null)}
+                    onClick={() => handleCategorySelect(null)}
                     className={`w-full category-sidebar-item ${
                       selectedCategory === null ? "category-sidebar-item-active" : ""
                     }`}
@@ -84,7 +134,7 @@ const Shop = () => {
                 {categories.map((category) => (
                   <li key={category.name}>
                     <button
-                      onClick={() => setSelectedCategory(category.name)}
+                      onClick={() => handleCategorySelect(category.name)}
                       className={`w-full category-sidebar-item ${
                         selectedCategory === category.name ? "category-sidebar-item-active" : ""
                       }`}
@@ -141,23 +191,11 @@ const Shop = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Show:</span>
-                  <Select defaultValue="50">
-                    <SelectTrigger className="w-20">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="10">10</SelectItem>
-                      <SelectItem value="25">25</SelectItem>
-                      <SelectItem value="50">50</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                
 
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-muted-foreground">Sort by:</span>
-                  <Select defaultValue="featured">
+                  <Select value={sortBy} onValueChange={(v) => setSortBy(v as typeof sortBy)}>
                     <SelectTrigger className="w-32">
                       <SelectValue />
                     </SelectTrigger>
@@ -170,20 +208,13 @@ const Shop = () => {
                   </Select>
                 </div>
 
-                <div className="flex items-center gap-1">
-                  <button className="p-2 rounded-lg hover:bg-muted transition-colors">
-                    <Grid3X3 className="w-5 h-5 text-primary" />
-                  </button>
-                  <button className="p-2 rounded-lg hover:bg-muted transition-colors">
-                    <List className="w-5 h-5 text-muted-foreground" />
-                  </button>
-                </div>
+                
               </div>
             </div>
 
             {/* Products Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-              {filteredProducts.map((product) => (
+              {sortedProducts.map((product) => (
                 <ProductCard 
                   key={product.id} 
                   id={product.id}
@@ -196,20 +227,7 @@ const Shop = () => {
               ))}
             </div>
 
-            {/* Pagination */}
-            <div className="flex justify-center mt-8">
-              <div className="flex items-center gap-2">
-                <button className="p-2 rounded-lg border border-border hover:border-primary transition-colors">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="w-10 h-10 rounded-lg bg-primary text-white font-medium">1</button>
-                <button className="w-10 h-10 rounded-lg border border-border hover:border-primary transition-colors">2</button>
-                <button className="w-10 h-10 rounded-lg border border-border hover:border-primary transition-colors">3</button>
-                <button className="p-2 rounded-lg border border-border hover:border-primary transition-colors">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

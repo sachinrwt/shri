@@ -9,6 +9,8 @@ import Shop from "./pages/Shop";
 import ProductDetails from "./pages/ProductDetails";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Wishlist from "./pages/Wishlist";
+import { WishlistProvider } from "@/context/WishlistContext";
 
 const queryClient = new QueryClient();
 
@@ -17,17 +19,20 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <WishlistProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </WishlistProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

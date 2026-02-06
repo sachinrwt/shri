@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
+import { useWishlist } from "@/context/WishlistContext";
 
 interface ProductCardProps {
   id: string;
@@ -22,6 +23,8 @@ const ProductCard = ({
   badgeText,
   unit = "",
 }: ProductCardProps) => {
+  const { isWishlisted, toggleWishlist } = useWishlist();
+
   const getBadgeClass = () => {
     switch (badge) {
       case "hot":
@@ -38,6 +41,14 @@ const ProductCard = ({
   const discountPercent = originalPrice
     ? Math.round(((originalPrice - price) / originalPrice) * 100)
     : null;
+
+  const wishlisted = isWishlisted(id);
+
+  const handleWishlistClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(id);
+  };
 
   return (
     <div className="product-card group">
@@ -57,7 +68,15 @@ const ProductCard = ({
         )}
 
         {/* Wishlist Button */}
-        <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-white">
+        <button
+          onClick={handleWishlistClick}
+          className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-all ${
+            wishlisted
+              ? "bg-primary text-white"
+              : "bg-white text-foreground hover:bg-primary hover:text-white"
+          }`}
+          aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+        >
           <Heart className="w-4 h-4" />
         </button>
       </Link>

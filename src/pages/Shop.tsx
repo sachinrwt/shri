@@ -96,8 +96,8 @@ const Shop = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">Items</h1>
-              <Breadcrumb items={[{ label: "Shop", path: "/shop" }, { label: "Items" }]} />
+              <h1 className="text-3xl font-bold text-foreground mb-2">Our Products</h1>
+              <Breadcrumb items={[{ label: "Shop" }]} />
             </div>
           </div>
         </div>

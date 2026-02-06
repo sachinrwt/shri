@@ -48,7 +48,7 @@ const About = () => {
     <Layout>
       {/* Breadcrumb */}
       <div className="container mx-auto px-4">
-        <Breadcrumb items={[{ label: "Pages", path: "/pages" }, { label: "About us" }]} />
+        <Breadcrumb items={[ { label: "About us" }]} />
       </div>
 
       {/* About Hero Section */}

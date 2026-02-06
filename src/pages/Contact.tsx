@@ -20,7 +20,7 @@ const Contact = () => {
     <Layout>
       {/* Breadcrumb */}
       <div className="container mx-auto px-4">
-        <Breadcrumb items={[{ label: "Pages", path: "/pages" }, { label: "Contact" }]} />
+        <Breadcrumb items={[{ label: "Contact" }]} />
       </div>
 
       {/* How Can Help You Section */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ProductCard from "@/components/shared/ProductCard";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { products } from "@/data/products";
@@ -8,8 +8,45 @@ const PopularProducts = () => {
 
   const filters = ["All", "Dresses", "Candles", "Holy water", "Statues", "Pooja Items"];
 
-  // Get first 10 products for the popular products section
-  const displayProducts = products.slice(0, 10);
+  // Filter products based on selected tab, then take first 10
+  const displayProducts = useMemo(() => {
+    let filtered = products;
+
+    switch (activeFilter) {
+      case "Dresses":
+        filtered = products.filter((p) => p.category === "Deity Dresses");
+        break;
+      case "Candles":
+        // When candle products are added, ensure their category/subcategory matches this.
+        filtered = products.filter(
+          (p) =>
+            p.category === "Pooja Items" &&
+            (p.subcategory?.toLowerCase().includes("candle") ?? false)
+        );
+        break;
+      case "Holy water":
+        filtered = products.filter(
+          (p) =>
+            p.category === "Pooja Items" &&
+            (p.subcategory === "Holy Water" ||
+              p.name.toLowerCase().includes("ganga jal") ||
+              p.shortDescription.toLowerCase().includes("holy water"))
+        );
+        break;
+      case "Statues":
+        filtered = products.filter((p) => p.category === "God Statues");
+        break;
+      case "Pooja Items":
+        filtered = products.filter((p) => p.category === "Pooja Items");
+        break;
+      case "All":
+      default:
+        filtered = products;
+        break;
+    }
+
+    return filtered.slice(0, 10);
+  }, [activeFilter]);
 
   return (
     <section className="py-12 bg-muted/30">

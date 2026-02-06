@@ -31,7 +31,7 @@ const Newsletter = () => {
                 className="w-full pl-12 py-6 rounded-full bg-white border-0 text-foreground"
               />
             </div>
-            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full font-medium">
+            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full font-medium border-2 border-white">
               Subscribe
             </Button>
           </div>

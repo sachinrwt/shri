@@ -22,8 +22,7 @@ const Wishlist = () => {
               </h1>
               <Breadcrumb
                 items={[
-                  { label: "Home", path: "/" },
-                  { label: "Wishlist" },
+                  { label: "Wishlist" }
                 ]}
               />
             </div>

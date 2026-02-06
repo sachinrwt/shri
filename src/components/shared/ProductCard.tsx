@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useWishlist } from "@/context/WishlistContext";
 
 interface ProductCardProps {
@@ -89,21 +89,14 @@ const ProductCard = ({
           </h3>
         </Link>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="price text-lg">
-              ₹ {price.toFixed(2)}
-              {unit && <span className="text-sm text-muted-foreground">/{unit}</span>}
-            </span>
-            {originalPrice && (
-              <span className="price-original">₹ {originalPrice.toFixed(2)}</span>
-            )}
-          </div>
-
-          <button className="add-to-cart-btn">
-            <ShoppingCart className="w-4 h-4" />
-            Add
-          </button>
+        <div className="flex items-center gap-2">
+          <span className="price text-lg">
+            ₹ {price.toFixed(2)}
+            {unit && <span className="text-sm text-muted-foreground">/{unit}</span>}
+          </span>
+          {originalPrice && (
+            <span className="price-original">₹ {originalPrice.toFixed(2)}</span>
+          )}
         </div>
       </div>
     </div>

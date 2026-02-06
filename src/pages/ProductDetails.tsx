@@ -8,7 +8,7 @@ import TrustBadges from "@/components/shared/TrustBadges";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Heart, ShoppingCart, Minus, Plus, Star } from "lucide-react";
+import { Heart, MessageCircle, Minus, Plus, Star } from "lucide-react";
 import { 
   getProductById, 
   getRelatedProducts, 
@@ -16,13 +16,34 @@ import {
   getCategories,
   Product 
 } from "@/data/products";
+import { generateWhatsAppOrderUrl } from "@/config/whatsapp";
+import { useWishlist } from "@/context/WishlistContext";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { isWishlisted, toggleWishlist } = useWishlist();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
   const [mainImage, setMainImage] = useState("");
+  
+  // Generate WhatsApp order URL
+  const getWhatsAppUrl = () => {
+    if (!product) return "";
+    const productUrl = `${window.location.origin}/product/${product.id}`;
+    return generateWhatsAppOrderUrl({
+      productName: product.name,
+      price: product.price,
+      quantity,
+      productUrl,
+      unit: product.unit,
+      size: selectedSize || undefined,
+    });
+  };
+  
+  const handleWhatsAppOrder = () => {
+    window.open(getWhatsAppUrl(), "_blank");
+  };
 
   const product = id ? getProductById(id) : undefined;
   const relatedProducts = id ? getRelatedProducts(id, 4) : [];
@@ -51,28 +72,11 @@ const ProductDetails = () => {
 
   return (
     <Layout>
-      {/* Top Bar */}
-      <div className="bg-muted/50 border-b border-border py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-between text-sm">
-            <div className="flex items-center gap-6">
-              <Link to="/about" className="text-muted-foreground hover:text-primary">About Us</Link>
-              <Link to="/account" className="text-muted-foreground hover:text-primary">My Account</Link>
-              <Link to="/wishlist" className="text-muted-foreground hover:text-primary">Wishlist</Link>
-              <Link to="/tracking" className="text-muted-foreground hover:text-primary">Order Tracking</Link>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="text-primary">100% Secure delivery without contacting the courier</span>
-              <span className="text-muted-foreground">Need help? Call Us: <span className="text-primary">1900888122</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Breadcrumb */}
       <div className="container mx-auto px-4">
         <Breadcrumb items={[
-          { label: "Our Product", path: "/shop" }, 
+          { label: "Shop", path: "/shop" }, 
           { label: product.category }
         ]} />
       </div>
@@ -181,13 +185,23 @@ const ProductDetails = () => {
                   </button>
                 </div>
 
-                <Button className="flex-1 bg-primary hover:bg-primary/90 text-white gap-2">
-                  <ShoppingCart className="w-5 h-5" />
-                  Get Best Quote
+                <Button 
+                  onClick={handleWhatsAppOrder}
+                  className="flex-1 bg-primary hover:bg-primary/90 text-white gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Order on WhatsApp
                 </Button>
 
-                <button className="p-3 border border-border rounded-lg hover:border-primary hover:text-primary transition-colors">
-                  <Heart className="w-5 h-5" />
+                <button 
+                  onClick={() => product && toggleWishlist(product.id)}
+                  className={`p-3 border rounded-lg transition-colors ${
+                    product && isWishlisted(product.id)
+                      ? "border-primary bg-primary text-white"
+                      : "border-border hover:border-primary hover:text-primary"
+                  }`}
+                >
+                  <Heart className={`w-5 h-5 ${product && isWishlisted(product.id) ? "fill-current" : ""}`} />
                 </button>
               </div>
 

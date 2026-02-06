@@ -96,13 +96,13 @@ const Header = () => {
                 </span>
               )}
             </Link>
-            <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors relative">
+            {/* <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors relative">
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
                 0
               </span>
               <span className="hidden lg:inline text-sm">Cart</span>
-            </button>
+            </button> */}
             
             {/* Mobile Menu Toggle */}
             <button

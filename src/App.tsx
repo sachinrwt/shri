@@ -10,6 +10,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Wishlist from "./pages/Wishlist";
+import Terms from "./pages/Terms";
 import { WishlistProvider } from "@/context/WishlistContext";
 import ScrollToTop from "./components/layout/ScrollToTop";
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

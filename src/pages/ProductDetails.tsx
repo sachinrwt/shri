@@ -25,6 +25,7 @@ const ProductDetails = () => {
   const { isWishlisted, toggleWishlist } = useWishlist();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColour, setSelectedColour] = useState("");
   const [mainImage, setMainImage] = useState("");
   
   // Generate WhatsApp order URL
@@ -38,6 +39,7 @@ const ProductDetails = () => {
       productUrl,
       unit: product.unit,
       size: selectedSize || undefined,
+      variant: selectedColour || undefined,
     });
   };
   
@@ -55,6 +57,7 @@ const ProductDetails = () => {
     if (product) {
       setMainImage(product.images[0]);
       setSelectedSize(product.sizes?.[0] || "");
+      setSelectedColour(product.colour?.[0] || "");
       setQuantity(1);
     }
   }, [product]);
@@ -167,6 +170,28 @@ const ProductDetails = () => {
                 </div>
               )}
 
+              {/* Colour Selection - Only show if product has colours */}
+              {product.colour && product.colour.length > 0 && (
+                <div className="mb-6">
+                  <span className="text-sm font-medium text-foreground mb-2 block">Colour:</span>
+                  <div className="flex gap-2 flex-wrap">
+                    {product.colour.map((colour) => (
+                      <button
+                        key={colour}
+                        onClick={() => setSelectedColour(colour)}
+                        className={`px-4 py-2 rounded-lg border ${
+                          selectedColour === colour
+                            ? "border-primary bg-primary text-white"
+                            : "border-border hover:border-primary"
+                        }`}
+                      >
+                        {colour}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Quantity & Add to Cart */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex items-center border border-border rounded-lg">
@@ -227,6 +252,12 @@ const ProductDetails = () => {
                   <div>
                     <span className="text-muted-foreground">Size:</span>{" "}
                     <span className="text-primary">{selectedSize}</span>
+                  </div>
+                )}
+                {selectedColour && (
+                  <div>
+                    <span className="text-muted-foreground">Colour:</span>{" "}
+                    <span className="text-primary">{selectedColour}</span>
                   </div>
                 )}
                 <div>

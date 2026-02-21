@@ -2,7 +2,11 @@
 // Each product has unique, professionally-written devotional descriptions
 
 import ladduGopalDress from "@/assets/products/laddu-gopal-dress.jpg";
-import ladduGopalDress2 from "@/assets/products/laddu-gopal-dress-2.jpg";
+import ladduGopalDress2 from "@/assets/products/laddu-gopal-dress-2 (2).jpg";
+import ladduGopalDress3 from "@/assets/products/laddu-gopal-dress-3 (2).jpg";
+import ladduGopalwDress2 from "@/assets/products/laddu-gopal-dress-2.jpg";
+import ladduGopalwDress3 from "@/assets/products/laddu-gopal-dress-3.jpg";
+import ladduGopalwDress4 from "@/assets/products/laddu-gopal-dress-4.jpg";
 import ramMandirPoshak from "@/assets/products/ram-mandir-poshak.jpg";
 import silkKhatuShyam from "@/assets/products/silk-khatu-shyam.jpg";
 import ladduGopalMukut from "@/assets/products/laddu-gopal-mukut.jpg";
@@ -74,6 +78,7 @@ export interface Product {
   reviews: number;
   sku: string;
   sizes?: string[];
+  colour?: string[];
   shortDescription: string;
   fullDescription: ProductDescription;
   attributes: ProductAttributes;
@@ -134,104 +139,102 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "4 Inch Khatu Shyam Baba God Statue",
-    price: 85.0,
+    name: "Sai Baba Car Dashboard Idol",
+    price: 70.0,
     unit: "Piece",
-    category: "God Statues",
-    subcategory: "Khatu Shyam",
-    images: [khatuShyamStatue, khatuShyamStatue5inch, khatuShyamIdol],
-    badge: "12%",
-    rating: 4.3,
-    reviews: 8,
-    sku: "SSM-GS-002",
-    sizes: ["3in", "4in", "5in"],
-    shortDescription: "A compact and beautifully crafted Khatu Shyam Baba statue, perfect for small spaces, travel poujas, and personal altars. This 4-inch idol brings divine blessings wherever you go.",
+    category: "Car Dashboard Idols",
+    subcategory: "Hindu",
+    images: [saiBabaDashboard, guruNanakDashboard, khatuShyamDashboard],
+    badge: "15%",
+    rating: 4.7,
+    reviews: 35,
+    sku: "SSM-CD-003",
+    shortDescription: "Shirdi Sai Baba's divine presence accompanies you on every journey with this beautiful dashboard idol. 'Sabka Malik Ek' – One God for all, blessing all travelers alike.",
     fullDescription: {
       intro: [
-        "Experience the divine presence of Khatu Shyam Baba with this elegantly crafted 4-inch statue. Designed for devotees who seek spiritual connection in compact spaces, this idol is perfect for personal altars, travel poujas, or as a sacred addition to your car dashboard.",
-        "The smaller size makes it ideal for those living in apartments or anyone seeking a portable devotional companion. Despite its compact dimensions, no detail has been spared in capturing the serene expression and graceful posture of Khatu Shyam Ji.",
-        "Crafted from premium polyresin with a smooth color-coated finish, this statue maintains the same devotional elegance as larger versions while fitting perfectly in intimate spaces."
+        "Invite the universal blessings of Shirdi Sai Baba into your vehicle with this lovingly crafted car dashboard idol. Sai Baba, whose message of 'Sabka Malik Ek' (One God for all) transcends religious boundaries, continues to guide and protect millions of devotees worldwide.",
+        "This dashboard idol captures Sai Baba in his iconic seated posture, right leg crossed over the left, hand raised in the Abhaya Mudra of protection. His serene expression and gentle gaze remind travelers to remain calm, patient, and faithful regardless of the road ahead.",
+        "For devotees who seek Baba's guidance in all aspects of life, having his presence in their vehicle transforms every journey into a pilgrimage. Whether commuting to work or embarking on a long road trip, Sai Baba's blessings ensure safe passage and inner peace."
       ],
       packaging: {
-        type: "Individual box packaging",
-        piecesPerCarton: "24 pieces per carton",
-        moq: "12 Pieces",
-        handling: "Each piece wrapped in protective foam for safe delivery."
+        type: "Premium gift box",
+        piecesPerCarton: "40 pieces per carton",
+        moq: "20 Pieces",
+        handling: "Individually cushioned packaging."
       },
       suggestedUse: [
-        "Perfect for small home mandirs and personal altars",
-        "Ideal for travel pooja kits and hotel room worship",
-        "Suitable for car dashboards and office desks",
-        "Makes a thoughtful devotional gift for loved ones"
+        "Car dashboard for protection during travel",
+        "Auto-rickshaws and taxis for commercial vehicles",
+        "Office desk for workplace blessings",
+        "Ideal gift for Sai devotees"
       ],
       careInstructions: [
-        "Dust regularly with a soft, dry cloth",
-        "Avoid exposure to moisture or humidity",
-        "Handle with care during travel",
-        "Store in a clean, dry place when not in use"
+        "Dust gently with a soft brush",
+        "Wipe occasionally with a slightly damp cloth, then dry immediately",
+        "Avoid prolonged exposure to extreme temperatures",
+        "Thursday is considered auspicious for cleaning and offering prayers"
       ]
     },
     attributes: {
-      material: "Polyresin",
-      finish: "Glossy Color Coated",
+      material: "Premium Resin",
+      finish: "Hand-Painted Matte",
       weight: "Approx. 60 gm",
-      position: "Standing",
-      size: "4 Inch",
-      usage: "Personal Worship, Travel Pooja, Car Dashboard"
+      size: "3 x 2.5 Inch",
+      usage: "Vehicle Dashboard, Office, Home Altar"
     },
-    suitableFor: "Small Spaces, Travel, Personal Altar",
-    MOQ: "12 Pieces"
+    suitableFor: "All Vehicles, Universal Devotees",
+    MOQ: "20 Pieces"
   },
   {
     id: "3",
-    name: "Khatu Shyam Idol Premium Statue",
-    price: 250.0,
+    name: "Guru Nanak Dev Ji Car Dashboard Idol",
+    price: 70.0,
     unit: "Piece",
-    category: "God Statues",
-    subcategory: "Khatu Shyam",
-    images: [khatuShyamIdol, khatuShyamStatue5inch, khatuShyamStatue],
-    badge: "hot",
-    rating: 4.8,
-    reviews: 15,
-    sku: "SSM-GS-003",
-    sizes: ["6in", "8in", "10in"],
-    shortDescription: "A premium handcrafted Khatu Shyam idol featuring intricate detailing and superior finish. This masterpiece statue is designed for devotees seeking an exceptional piece for their home temple.",
+    category: "Car Dashboard Idols",
+    subcategory: "Sikh",
+    images: [guruNanakDashboard, saiBabaDashboard, shivParvatiDashboard],
+    badge: "12%",
+    rating: 4.6,
+    reviews: 18,
+    sku: "SSM-CD-001",
+    shortDescription: "Carry the blessings of Guru Nanak Dev Ji on every journey with this beautifully crafted car dashboard idol. A symbol of Sikh faith and spiritual protection for safe travels.",
     fullDescription: {
       intro: [
-        "Elevate your devotional space with this Premium Khatu Shyam Idol, a masterpiece of spiritual artistry. Every curve and contour has been meticulously crafted by skilled artisans who pour their devotion into each creation, resulting in a statue that truly captures the divine essence of Shyam Baba.",
-        "This premium idol stands apart with its exceptional detailing—from the ornate crown to the delicate features of the deity's face, every element reflects superior craftsmanship. The rich color palette and lustrous finish create a statue that commands reverence and admiration.",
-        "Whether placed in your home mandir as the central deity or gifted to a fellow devotee during auspicious occasions, this idol serves as a timeless symbol of faith and devotion to Khatu Shyam Ji."
+        "Embark on every journey with the divine blessings of Guru Nanak Dev Ji, the founder of Sikhism and the first of the ten Sikh Gurus. This thoughtfully designed car dashboard idol brings spiritual protection, peace, and the teachings of Waheguru into your daily travels.",
+        "The idol depicts Guru Nanak Ji in his characteristic serene posture, hands raised in blessing, reminding devotees of his timeless message: 'Kirat Karo, Naam Japo, Vand Chhako' (Work honestly, meditate on God's name, share with others). The peaceful expression instills calmness and focus during drives.",
+        "Crafted with attention to detail, this dashboard companion features a non-slip base that keeps it secure on your car's dashboard, ensuring that Guru Ji's blessings accompany you through every road, every destination."
       ],
       packaging: {
-        type: "Premium gift box with velvet lining",
-        piecesPerCarton: "12 pieces per carton",
-        moq: "6 Pieces",
-        handling: "Double-layered protection with thermocol and bubble wrap."
+        type: "Individual blister packaging",
+        piecesPerCarton: "50 pieces per carton",
+        moq: "20 Pieces",
+        handling: "Compact packaging for easy retail display."
       },
       suggestedUse: [
-        "Centerpiece for home mandir or temple",
-        "Premium devotional gift for special occasions",
-        "Ideal for Khatu Shyam Jayanti celebrations",
-        "Perfect for new home griha pravesh ceremonies"
+        "Car dashboard for travel blessings",
+        "Office desk for work inspiration",
+        "Home altar for daily remembrance",
+        "Perfect gift for Gurpurab celebrations"
       ],
       careInstructions: [
-        "Clean with a soft microfiber cloth",
-        "Apply occasional polish for maintaining shine",
-        "Keep in a covered area to prevent dust accumulation",
-        "Handle with extra care due to intricate details"
+        "Wipe with a soft cloth to remove dust",
+        "Avoid exposure to extreme heat inside parked cars",
+        "The non-slip base can be cleaned with mild soap if needed",
+        "Keep away from air freshener liquids that may damage finish"
       ]
     },
     attributes: {
-      material: "Premium Polyresin with Metal Accents",
-      finish: "Hand-Painted with Lacquer Coating",
-      weight: "Approx. 300 gm",
-      position: "Standing with raised hand blessing",
-      size: "6-10 Inch options",
-      usage: "Main Temple Idol, Premium Gift, Spiritual Décor"
+      material: "High-Quality Resin",
+      finish: "Matte Color Finish",
+      weight: "Approx. 50 gm",
+      size: "3 x 2 Inch (Dashboard Size)",
+      usage: "Car Dashboard, Office Desk, Small Altar"
     },
-    suitableFor: "Home Temple, Premium Gifting, Religious Events",
-    MOQ: "6 Pieces"
+    suitableFor: "Sikh Devotees, Vehicle Owners, Spiritual Travelers",
+    MOQ: "20 Pieces"
   },
+
+  
   {
     id: "4",
     name: "Ganesh Statue Blessing Idol",
@@ -283,55 +286,59 @@ export const products: Product[] = [
     MOQ: "10 Pieces"
   },
 
-  // ============ CAR DASHBOARD IDOLS ============
   {
     id: "5",
-    name: "Guru Nanak Dev Ji Car Dashboard Idol",
-    price: 70.0,
+    name: "Khatu Shyam Idol Premium Statue",
+    price: 250.0,
     unit: "Piece",
-    category: "Car Dashboard Idols",
-    subcategory: "Sikh",
-    images: [guruNanakDashboard, saiBabaDashboard, shivParvatiDashboard],
-    badge: "12%",
-    rating: 4.6,
-    reviews: 18,
-    sku: "SSM-CD-001",
-    shortDescription: "Carry the blessings of Guru Nanak Dev Ji on every journey with this beautifully crafted car dashboard idol. A symbol of Sikh faith and spiritual protection for safe travels.",
+    category: "God Statues",
+    subcategory: "Khatu Shyam",
+    images: [khatuShyamStatue, khatuShyamStatue5inch, khatuShyamStatue],
+    badge: "hot",
+    rating: 4.8,
+    reviews: 15,
+    sku: "SSM-GS-003",
+    sizes: ["6in", "8in", "10in"],
+    shortDescription: "A premium handcrafted Khatu Shyam idol featuring intricate detailing and superior finish. This masterpiece statue is designed for devotees seeking an exceptional piece for their home temple.",
     fullDescription: {
       intro: [
-        "Embark on every journey with the divine blessings of Guru Nanak Dev Ji, the founder of Sikhism and the first of the ten Sikh Gurus. This thoughtfully designed car dashboard idol brings spiritual protection, peace, and the teachings of Waheguru into your daily travels.",
-        "The idol depicts Guru Nanak Ji in his characteristic serene posture, hands raised in blessing, reminding devotees of his timeless message: 'Kirat Karo, Naam Japo, Vand Chhako' (Work honestly, meditate on God's name, share with others). The peaceful expression instills calmness and focus during drives.",
-        "Crafted with attention to detail, this dashboard companion features a non-slip base that keeps it secure on your car's dashboard, ensuring that Guru Ji's blessings accompany you through every road, every destination."
+        "Elevate your devotional space with this Premium Khatu Shyam Idol, a masterpiece of spiritual artistry. Every curve and contour has been meticulously crafted by skilled artisans who pour their devotion into each creation, resulting in a statue that truly captures the divine essence of Shyam Baba.",
+        "This premium idol stands apart with its exceptional detailing—from the ornate crown to the delicate features of the deity's face, every element reflects superior craftsmanship. The rich color palette and lustrous finish create a statue that commands reverence and admiration.",
+        "Whether placed in your home mandir as the central deity or gifted to a fellow devotee during auspicious occasions, this idol serves as a timeless symbol of faith and devotion to Khatu Shyam Ji."
       ],
       packaging: {
-        type: "Individual blister packaging",
-        piecesPerCarton: "50 pieces per carton",
-        moq: "20 Pieces",
-        handling: "Compact packaging for easy retail display."
+        type: "Premium gift box with velvet lining",
+        piecesPerCarton: "12 pieces per carton",
+        moq: "6 Pieces",
+        handling: "Double-layered protection with thermocol and bubble wrap."
       },
       suggestedUse: [
-        "Car dashboard for travel blessings",
-        "Office desk for work inspiration",
-        "Home altar for daily remembrance",
-        "Perfect gift for Gurpurab celebrations"
+        "Centerpiece for home mandir or temple",
+        "Premium devotional gift for special occasions",
+        "Ideal for Khatu Shyam Jayanti celebrations",
+        "Perfect for new home griha pravesh ceremonies"
       ],
       careInstructions: [
-        "Wipe with a soft cloth to remove dust",
-        "Avoid exposure to extreme heat inside parked cars",
-        "The non-slip base can be cleaned with mild soap if needed",
-        "Keep away from air freshener liquids that may damage finish"
+        "Clean with a soft microfiber cloth",
+        "Apply occasional polish for maintaining shine",
+        "Keep in a covered area to prevent dust accumulation",
+        "Handle with extra care due to intricate details"
       ]
     },
     attributes: {
-      material: "High-Quality Resin",
-      finish: "Matte Color Finish",
-      weight: "Approx. 50 gm",
-      size: "3 x 2 Inch (Dashboard Size)",
-      usage: "Car Dashboard, Office Desk, Small Altar"
+      material: "Premium Polyresin with Metal Accents",
+      finish: "Hand-Painted with Lacquer Coating",
+      weight: "Approx. 300 gm",
+      position: "Standing with raised hand blessing",
+      size: "6-10 Inch options",
+      usage: "Main Temple Idol, Premium Gift, Spiritual Décor"
     },
-    suitableFor: "Sikh Devotees, Vehicle Owners, Spiritual Travelers",
-    MOQ: "20 Pieces"
+    suitableFor: "Home Temple, Premium Gifting, Religious Events",
+    MOQ: "6 Pieces"
   },
+
+  // ============ CAR DASHBOARD IDOLS ============
+  
   {
     id: "6",
     name: "Khatu Shyam Baba Car Dashboard Idol",
@@ -382,52 +389,55 @@ export const products: Product[] = [
   },
   {
     id: "7",
-    name: "Sai Baba Car Dashboard Idol",
-    price: 70.0,
+    name: "4 Inch Khatu Shyam Baba God Statue",
+    price: 85.0,
     unit: "Piece",
-    category: "Car Dashboard Idols",
-    subcategory: "Hindu",
-    images: [saiBabaDashboard, guruNanakDashboard, khatuShyamDashboard],
-    badge: "15%",
-    rating: 4.7,
-    reviews: 35,
-    sku: "SSM-CD-003",
-    shortDescription: "Shirdi Sai Baba's divine presence accompanies you on every journey with this beautiful dashboard idol. 'Sabka Malik Ek' – One God for all, blessing all travelers alike.",
+    category: "God Statues",
+    subcategory: "Khatu Shyam",
+    images: [khatuShyamIdol, khatuShyamStatue5inch, khatuShyamIdol],
+    badge: "12%",
+    rating: 4.3,
+    reviews: 8,
+    sku: "SSM-GS-002",
+    sizes: ["3in", "4in", "5in"],
+    shortDescription: "A compact and beautifully crafted Khatu Shyam Baba statue, perfect for small spaces, travel poujas, and personal altars. This 4-inch idol brings divine blessings wherever you go.",
     fullDescription: {
       intro: [
-        "Invite the universal blessings of Shirdi Sai Baba into your vehicle with this lovingly crafted car dashboard idol. Sai Baba, whose message of 'Sabka Malik Ek' (One God for all) transcends religious boundaries, continues to guide and protect millions of devotees worldwide.",
-        "This dashboard idol captures Sai Baba in his iconic seated posture, right leg crossed over the left, hand raised in the Abhaya Mudra of protection. His serene expression and gentle gaze remind travelers to remain calm, patient, and faithful regardless of the road ahead.",
-        "For devotees who seek Baba's guidance in all aspects of life, having his presence in their vehicle transforms every journey into a pilgrimage. Whether commuting to work or embarking on a long road trip, Sai Baba's blessings ensure safe passage and inner peace."
+        "Experience the divine presence of Khatu Shyam Baba with this elegantly crafted 4-inch statue. Designed for devotees who seek spiritual connection in compact spaces, this idol is perfect for personal altars, travel poujas, or as a sacred addition to your car dashboard.",
+        "The smaller size makes it ideal for those living in apartments or anyone seeking a portable devotional companion. Despite its compact dimensions, no detail has been spared in capturing the serene expression and graceful posture of Khatu Shyam Ji.",
+        "Crafted from premium polyresin with a smooth color-coated finish, this statue maintains the same devotional elegance as larger versions while fitting perfectly in intimate spaces."
       ],
       packaging: {
-        type: "Premium gift box",
-        piecesPerCarton: "40 pieces per carton",
-        moq: "20 Pieces",
-        handling: "Individually cushioned packaging."
+        type: "Individual box packaging",
+        piecesPerCarton: "24 pieces per carton",
+        moq: "12 Pieces",
+        handling: "Each piece wrapped in protective foam for safe delivery."
       },
       suggestedUse: [
-        "Car dashboard for protection during travel",
-        "Auto-rickshaws and taxis for commercial vehicles",
-        "Office desk for workplace blessings",
-        "Ideal gift for Sai devotees"
+        "Perfect for small home mandirs and personal altars",
+        "Ideal for travel pooja kits and hotel room worship",
+        "Suitable for car dashboards and office desks",
+        "Makes a thoughtful devotional gift for loved ones"
       ],
       careInstructions: [
-        "Dust gently with a soft brush",
-        "Wipe occasionally with a slightly damp cloth, then dry immediately",
-        "Avoid prolonged exposure to extreme temperatures",
-        "Thursday is considered auspicious for cleaning and offering prayers"
+        "Dust regularly with a soft, dry cloth",
+        "Avoid exposure to moisture or humidity",
+        "Handle with care during travel",
+        "Store in a clean, dry place when not in use"
       ]
     },
     attributes: {
-      material: "Premium Resin",
-      finish: "Hand-Painted Matte",
+      material: "Polyresin",
+      finish: "Glossy Color Coated",
       weight: "Approx. 60 gm",
-      size: "3 x 2.5 Inch",
-      usage: "Vehicle Dashboard, Office, Home Altar"
+      position: "Standing",
+      size: "4 Inch",
+      usage: "Personal Worship, Travel Pooja, Car Dashboard"
     },
-    suitableFor: "All Vehicles, Universal Devotees",
-    MOQ: "20 Pieces"
+    suitableFor: "Small Spaces, Travel, Personal Altar",
+    MOQ: "12 Pieces"
   },
+ 
   {
     id: "8",
     name: "Shiv Parvati Ji Car Dashboard Idol",
@@ -533,12 +543,12 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Deity Dresses",
     subcategory: "Laddu Gopal",
-    images: [ladduGopalDress, ladduGopalDress2, ramMandirPoshak],
+    images: [ladduGopalDress, ladduGopalDress2, ladduGopalDress3],
     badge: "hot",
     rating: 4.6,
     reviews: 45,
     sku: "SSM-DD-001",
-    sizes: ["Size 0", "Size 1", "Size 2", "Size 3", "Size 4", "Size 5"],
+    colour: ["Yellow", "Red", "Blue", "Pink", "Purple"],
     shortDescription: "Dress your beloved Laddu Gopal Ji in this beautiful, festival-ready outfit. Soft fabric with intricate embroidery, perfect for daily worship and special occasions.",
     fullDescription: {
       intro: [
@@ -580,12 +590,12 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Deity Dresses",
     subcategory: "Laddu Gopal",
-    images: [ladduGopalDress2, ladduGopalDress, ramMandirPoshak],
+    images: [ladduGopalwDress2, ladduGopalwDress3, ladduGopalwDress4],
     badge: "12%",
     rating: 4.4,
     reviews: 32,
     sku: "SSM-DD-002",
-    sizes: ["Size 0", "Size 1", "Size 2", "Size 3", "Size 4"],
+    colour: ["Multi-colour", "Yellow", "Red", "Blue", "Green", "Pink"],
     shortDescription: "Keep your Laddu Gopal Ji warm during winter months with this cozy woollen dress. Soft, comfortable, and adorable – perfect for cold weather worship.",
     fullDescription: {
       intro: [
@@ -627,7 +637,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Deity Accessories",
     subcategory: "Laddu Gopal",
-    images: [ladduGopalMukut, ladduGopalDress, ladduGopalDress2],
+    images: [ladduGopalMukut, ladduGopalDress],
     badge: "10%",
     rating: 4.5,
     reviews: 28,
@@ -1046,331 +1056,331 @@ export const products: Product[] = [
     suitableFor: "Temples, Home Mandirs, Priests",
     MOQ: "30 Packs"
   },
-  {
-    id: "21",
-    name: "Kumkum Sindur Maroon",
-    price: 135.0,
-    unit: "Kg",
-    category: "Pooja Items",
-    subcategory: "Kumkum & Sindur",
-    images: [kumkumSindur, kesarChandan, ashtagandhaPowder],
-    badge: "9%",
-    rating: 4.7,
-    reviews: 89,
-    sku: "SSM-PI-004",
-    shortDescription: "Premium quality maroon Kumkum Sindur for pooja and personal use. Auspicious vermilion color symbolizing prosperity, fertility, and marital bliss.",
-    fullDescription: {
-      intro: [
-        "Bring the auspicious power of Kumkum into your worship and daily life with this premium maroon sindur. In Hindu tradition, Kumkum represents the divine feminine energy (Shakti), and its application is considered highly auspicious for both deity worship and personal adornment.",
-        "The rich maroon color of this kumkum is achieved through traditional preparation methods, ensuring both the color's vibrancy and its spiritual potency. For married women, the sindur in the hair parting symbolizes their married status and invokes blessings for their husband's longevity.",
-        "This kumkum is equally essential for deity worship, where it adorns the foreheads of goddesses and gods alike. The vermilion mark (tilak) made with this kumkum after pooja signifies that the devotee has received divine blessings and protection."
-      ],
-      packaging: {
-        type: "Food-grade sealed packets",
-        piecesPerCarton: "20 kg per carton (various pack sizes)",
-        moq: "5 Kg",
-        handling: "Moisture-proof sealed packaging."
-      },
-      suggestedUse: [
-        "Deity tilak and decoration",
-        "Married women's sindur application",
-        "Navratri and Durga Puja",
-        "Wedding and auspicious ceremonies"
-      ],
-      careInstructions: [
-        "Store in dry, airtight container",
-        "Keep away from moisture to prevent clumping",
-        "Use clean, dry fingers or spoon",
-        "Check for skin sensitivity before facial use"
-      ]
-    },
-    attributes: {
-      material: "Natural Mineral-Based",
-      finish: "Fine Powder",
-      usage: "Tilak, Sindur, Deity Decoration"
-    },
-    suitableFor: "Pooja, Married Women, Temple Use",
-    MOQ: "5 Kg"
-  },
-  {
-    id: "22",
-    name: "Jai Shri Shyam Tilak",
-    price: 17.0,
-    unit: "Piece",
-    category: "Pooja Items",
-    subcategory: "Ready Tilak",
-    images: [jaiShriShyamTilak, kesarChandan, kumkumSindur],
-    rating: 4.3,
-    reviews: 156,
-    sku: "SSM-PI-005",
-    shortDescription: "Ready-to-apply Jai Shri Shyam tilak for instant devotion on-the-go. Pre-prepared with sacred ingredients for Khatu Shyam Bhakts.",
-    fullDescription: {
-      intro: [
-        "For the devoted Shyam Bhakts who carry their faith everywhere, this ready-to-apply Jai Shri Shyam Tilak offers instant connection with Baba. No preparation needed – simply apply the sacred tilak and feel Khatu Shyam Ji's blessings accompany you throughout the day.",
-        "This convenient tilak is prepared with traditional ingredients blessed for Khatu Shyam devotees. Whether you're at work, traveling, or away from your home mandir, this portable tilak ensures you can always carry the mark of your devotion.",
-        "The 'Jai Shri Shyam' inscription on the packaging serves as a constant reminder of Baba's name, while the tilak itself connects you with millions of fellow devotees who proudly wear this sacred mark. Perfect for those who chant 'Khatu wale Shyam Baba ki Jai' with every breath."
-      ],
-      packaging: {
-        type: "Compact individual sachets",
-        piecesPerCarton: "500 pieces per carton",
-        moq: "100 Pieces",
-        handling: "Travel-friendly sealed packaging."
-      },
-      suggestedUse: [
-        "Daily tilak before leaving home",
-        "After visiting Khatu Shyam temple",
-        "During travel and pilgrimages",
-        "Office and workplace devotion"
-      ],
-      careInstructions: [
-        "Open sachet carefully",
-        "Apply on clean, dry forehead",
-        "Use within 1 year of manufacture",
-        "Store away from extreme heat"
-      ]
-    },
-    attributes: {
-      material: "Chandan-Kumkum Blend",
-      finish: "Paste Form (Ready to Apply)",
-      usage: "Personal Tilak, Travel Worship"
-    },
-    suitableFor: "Khatu Shyam Devotees, Daily Use, Travel",
-    MOQ: "100 Pieces"
-  },
-  {
-    id: "23",
-    name: "50ml Ganga Jal",
-    price: 10.0,
-    unit: "Piece",
-    category: "Pooja Items",
-    subcategory: "Holy Water",
-    images: [gangaJal, gangaJal2],
-    badge: "9%",
-    rating: 4.9,
-    reviews: 234,
-    sku: "SSM-PI-006",
-    shortDescription: "Sacred Ganga Jal (Holy Ganges Water) for purification rituals, pooja, and spiritual ceremonies. Sourced from the sacred Ganges river.",
-    fullDescription: {
-      intro: [
-        "Bring the sacred purifying waters of Mother Ganga into your home with this authentic Ganga Jal. For millions of Hindus, the Ganges is not just a river but a goddess – Ganga Mata – whose waters have the power to purify the soul and wash away sins.",
-        "This holy water is sourced from the sacred Ganges river and carefully bottled to preserve its spiritual potency. Whether used for daily pooja, mixing with other waters for rituals, or kept at home for auspicious occasions, Ganga Jal is an essential element of Hindu worship.",
-        "The spiritual significance of Ganga Jal extends beyond life itself – it is used in final rites to ensure the departed soul's peaceful journey. Having Ganga Jal at home provides both daily spiritual benefit and the assurance of its availability when most needed."
-      ],
-      packaging: {
-        type: "Sealed plastic bottle with sacred imagery",
-        piecesPerCarton: "200 bottles per carton",
-        moq: "50 Pieces",
-        handling: "Leak-proof sealed bottles."
-      },
-      suggestedUse: [
-        "Daily pooja and aarti",
-        "Deity abhishek and sprinkling",
-        "Purification of new purchases and spaces",
-        "Mixing with regular water for sacred bath"
-      ],
-      careInstructions: [
-        "Store in a clean, sacred space",
-        "Keep bottle sealed until use",
-        "Do not contaminate with impure substances",
-        "Handle with reverence as sacred water"
-      ]
-    },
-    attributes: {
-      material: "Holy Ganges River Water",
-      finish: "Clear Sacred Water",
-      weight: "50 ml",
-      usage: "Pooja, Abhishek, Purification, Last Rites"
-    },
-    suitableFor: "All Hindu Rituals, Home Worship, Temples",
-    MOQ: "50 Pieces"
-  },
+  // {
+  //   id: "21",
+  //   name: "Kumkum Sindur Maroon",
+  //   price: 135.0,
+  //   unit: "Kg",
+  //   category: "Pooja Items",
+  //   subcategory: "Kumkum & Sindur",
+  //   images: [kumkumSindur, kesarChandan, ashtagandhaPowder],
+  //   badge: "9%",
+  //   rating: 4.7,
+  //   reviews: 89,
+  //   sku: "SSM-PI-004",
+  //   shortDescription: "Premium quality maroon Kumkum Sindur for pooja and personal use. Auspicious vermilion color symbolizing prosperity, fertility, and marital bliss.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Bring the auspicious power of Kumkum into your worship and daily life with this premium maroon sindur. In Hindu tradition, Kumkum represents the divine feminine energy (Shakti), and its application is considered highly auspicious for both deity worship and personal adornment.",
+  //       "The rich maroon color of this kumkum is achieved through traditional preparation methods, ensuring both the color's vibrancy and its spiritual potency. For married women, the sindur in the hair parting symbolizes their married status and invokes blessings for their husband's longevity.",
+  //       "This kumkum is equally essential for deity worship, where it adorns the foreheads of goddesses and gods alike. The vermilion mark (tilak) made with this kumkum after pooja signifies that the devotee has received divine blessings and protection."
+  //     ],
+  //     packaging: {
+  //       type: "Food-grade sealed packets",
+  //       piecesPerCarton: "20 kg per carton (various pack sizes)",
+  //       moq: "5 Kg",
+  //       handling: "Moisture-proof sealed packaging."
+  //     },
+  //     suggestedUse: [
+  //       "Deity tilak and decoration",
+  //       "Married women's sindur application",
+  //       "Navratri and Durga Puja",
+  //       "Wedding and auspicious ceremonies"
+  //     ],
+  //     careInstructions: [
+  //       "Store in dry, airtight container",
+  //       "Keep away from moisture to prevent clumping",
+  //       "Use clean, dry fingers or spoon",
+  //       "Check for skin sensitivity before facial use"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Natural Mineral-Based",
+  //     finish: "Fine Powder",
+  //     usage: "Tilak, Sindur, Deity Decoration"
+  //   },
+  //   suitableFor: "Pooja, Married Women, Temple Use",
+  //   MOQ: "5 Kg"
+  // },
+  // {
+  //   id: "22",
+  //   name: "Jai Shri Shyam Tilak",
+  //   price: 17.0,
+  //   unit: "Piece",
+  //   category: "Pooja Items",
+  //   subcategory: "Ready Tilak",
+  //   images: [jaiShriShyamTilak, kesarChandan, kumkumSindur],
+  //   rating: 4.3,
+  //   reviews: 156,
+  //   sku: "SSM-PI-005",
+  //   shortDescription: "Ready-to-apply Jai Shri Shyam tilak for instant devotion on-the-go. Pre-prepared with sacred ingredients for Khatu Shyam Bhakts.",
+  //   fullDescription: {
+  //     intro: [
+  //       "For the devoted Shyam Bhakts who carry their faith everywhere, this ready-to-apply Jai Shri Shyam Tilak offers instant connection with Baba. No preparation needed – simply apply the sacred tilak and feel Khatu Shyam Ji's blessings accompany you throughout the day.",
+  //       "This convenient tilak is prepared with traditional ingredients blessed for Khatu Shyam devotees. Whether you're at work, traveling, or away from your home mandir, this portable tilak ensures you can always carry the mark of your devotion.",
+  //       "The 'Jai Shri Shyam' inscription on the packaging serves as a constant reminder of Baba's name, while the tilak itself connects you with millions of fellow devotees who proudly wear this sacred mark. Perfect for those who chant 'Khatu wale Shyam Baba ki Jai' with every breath."
+  //     ],
+  //     packaging: {
+  //       type: "Compact individual sachets",
+  //       piecesPerCarton: "500 pieces per carton",
+  //       moq: "100 Pieces",
+  //       handling: "Travel-friendly sealed packaging."
+  //     },
+  //     suggestedUse: [
+  //       "Daily tilak before leaving home",
+  //       "After visiting Khatu Shyam temple",
+  //       "During travel and pilgrimages",
+  //       "Office and workplace devotion"
+  //     ],
+  //     careInstructions: [
+  //       "Open sachet carefully",
+  //       "Apply on clean, dry forehead",
+  //       "Use within 1 year of manufacture",
+  //       "Store away from extreme heat"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Chandan-Kumkum Blend",
+  //     finish: "Paste Form (Ready to Apply)",
+  //     usage: "Personal Tilak, Travel Worship"
+  //   },
+  //   suitableFor: "Khatu Shyam Devotees, Daily Use, Travel",
+  //   MOQ: "100 Pieces"
+  // },
+  // {
+  //   id: "23",
+  //   name: "50ml Ganga Jal",
+  //   price: 10.0,
+  //   unit: "Piece",
+  //   category: "Pooja Items",
+  //   subcategory: "Holy Water",
+  //   images: [gangaJal, gangaJal2],
+  //   badge: "9%",
+  //   rating: 4.9,
+  //   reviews: 234,
+  //   sku: "SSM-PI-006",
+  //   shortDescription: "Sacred Ganga Jal (Holy Ganges Water) for purification rituals, pooja, and spiritual ceremonies. Sourced from the sacred Ganges river.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Bring the sacred purifying waters of Mother Ganga into your home with this authentic Ganga Jal. For millions of Hindus, the Ganges is not just a river but a goddess – Ganga Mata – whose waters have the power to purify the soul and wash away sins.",
+  //       "This holy water is sourced from the sacred Ganges river and carefully bottled to preserve its spiritual potency. Whether used for daily pooja, mixing with other waters for rituals, or kept at home for auspicious occasions, Ganga Jal is an essential element of Hindu worship.",
+  //       "The spiritual significance of Ganga Jal extends beyond life itself – it is used in final rites to ensure the departed soul's peaceful journey. Having Ganga Jal at home provides both daily spiritual benefit and the assurance of its availability when most needed."
+  //     ],
+  //     packaging: {
+  //       type: "Sealed plastic bottle with sacred imagery",
+  //       piecesPerCarton: "200 bottles per carton",
+  //       moq: "50 Pieces",
+  //       handling: "Leak-proof sealed bottles."
+  //     },
+  //     suggestedUse: [
+  //       "Daily pooja and aarti",
+  //       "Deity abhishek and sprinkling",
+  //       "Purification of new purchases and spaces",
+  //       "Mixing with regular water for sacred bath"
+  //     ],
+  //     careInstructions: [
+  //       "Store in a clean, sacred space",
+  //       "Keep bottle sealed until use",
+  //       "Do not contaminate with impure substances",
+  //       "Handle with reverence as sacred water"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Holy Ganges River Water",
+  //     finish: "Clear Sacred Water",
+  //     weight: "50 ml",
+  //     usage: "Pooja, Abhishek, Purification, Last Rites"
+  //   },
+  //   suitableFor: "All Hindu Rituals, Home Worship, Temples",
+  //   MOQ: "50 Pieces"
+  // },
 
-  // ============ FRESHENERS & FRAGRANCES ============
-  {
-    id: "24",
-    name: "ISHAURA ROOM FRESHENERS",
-    price: 70.0,
-    unit: "Piece",
-    category: "Fresheners",
-    subcategory: "Room Fresheners",
-    images: [ishauraFreshener, ishauraFreshener2, ishauraFreshener3],
-    badge: "hot",
-    rating: 4.5,
-    reviews: 78,
-    sku: "SSM-FR-001",
-    shortDescription: "Transform your space with the divine fragrances of Ishaura Room Fresheners. Temple-inspired scents that create a calming, spiritual atmosphere at home.",
-    fullDescription: {
-      intro: [
-        "Create a temple-like atmosphere in your home with Ishaura Room Fresheners, specially formulated to evoke the serene fragrance of sacred spaces. Just as the scent of incense and flowers fills temples with divine energy, these fresheners bring that same spiritual ambiance into your daily life.",
-        "The Ishaura range features carefully crafted fragrances inspired by traditional pooja aromas – sandalwood, rose, jasmine, and other sacred scents. Whether in your pooja room, living room, or bedroom, these fresheners transform the atmosphere, making every breath a reminder of the divine.",
-        "Unlike chemical-heavy commercial fresheners, Ishaura products are designed with the spiritual aesthetic in mind. The fragrances are calming rather than overwhelming, creating an environment conducive to meditation, prayer, and peaceful living."
-      ],
-      packaging: {
-        type: "Spray bottle with decorative label",
-        piecesPerCarton: "48 pieces per carton",
-        moq: "24 Pieces",
-        handling: "Upright packaging to prevent leakage."
-      },
-      suggestedUse: [
-        "Pooja room ambiance",
-        "Living room and bedroom freshening",
-        "Before meditation and prayer",
-        "Guest welcome and special occasions"
-      ],
-      careInstructions: [
-        "Spray away from face and eyes",
-        "Keep away from open flames",
-        "Store in cool place away from direct sunlight",
-        "Keep out of reach of children"
-      ]
-    },
-    attributes: {
-      material: "Water-Based Fragrance Solution",
-      finish: "Fine Mist Spray",
-      usage: "Room Freshening, Spiritual Atmosphere"
-    },
-    suitableFor: "Homes, Temples, Meditation Spaces, Offices",
-    MOQ: "24 Pieces"
-  },
-  {
-    id: "25",
-    name: "Ishaura Hanging Car Diffuser & Wardrobe Freshener",
-    price: 50.0,
-    unit: "Piece",
-    category: "Fresheners",
-    subcategory: "Car & Wardrobe",
-    images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
-    badge: "new",
-    rating: 4.4,
-    reviews: 45,
-    sku: "SSM-FR-002",
-    shortDescription: "Long-lasting hanging diffuser perfect for cars and wardrobes. Elegant design with temple-inspired fragrances for continuous freshness.",
-    fullDescription: {
-      intro: [
-        "Enjoy the divine fragrance of temples wherever you go with the Ishaura Hanging Car Diffuser. Designed for both vehicles and wardrobes, this elegant diffuser provides continuous, long-lasting freshness with sacred, calming scents that transform your environment.",
-        "The hanging design makes it perfect for rear-view mirrors in cars, adding a touch of spirituality to your daily commute. When used in wardrobes, it keeps your clothes fresh with a subtle, pleasant aroma that's not overpowering but definitely noticeable.",
-        "Each diffuser is crafted with care, featuring an attractive design that complements any setting. The fragrance is released slowly over weeks, providing extended use and consistent scent without the need for electricity or regular replacement."
-      ],
-      packaging: {
-        type: "Individual blister pack with hook",
-        piecesPerCarton: "100 pieces per carton",
-        moq: "50 Pieces",
-        handling: "Display-ready retail packaging."
-      },
-      suggestedUse: [
-        "Hang from car rear-view mirror",
-        "Place in wardrobe or closet",
-        "Use in small rooms or bathrooms",
-        "Gift with other devotional items"
-      ],
-      careInstructions: [
-        "Remove outer seal to activate fragrance",
-        "Hang in well-ventilated area for best diffusion",
-        "Keep away from direct sunlight to extend life",
-        "Replace when fragrance fades (typically 4-6 weeks)"
-      ]
-    },
-    attributes: {
-      material: "Fragrance-Infused Gel/Fabric",
-      finish: "Decorative Hanging Design",
-      usage: "Car, Wardrobe, Small Spaces"
-    },
-    suitableFor: "Vehicles, Wardrobes, Gift Items",
-    MOQ: "50 Pieces"
-  },
-  {
-    id: "26",
-    name: "Ishaura Car Vent Clip Freshener",
-    price: 55.0,
-    unit: "Piece",
-    category: "Fresheners",
-    subcategory: "Car",
-    images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
-    badge: "8%",
-    rating: 4.3,
-    reviews: 34,
-    sku: "SSM-FR-003",
-    shortDescription: "Compact clip-on car freshener that attaches to your AC vent. Enjoy continuous divine fragrance powered by your car's air conditioning.",
-    fullDescription: {
-      intro: [
-        "Transform your driving experience with the Ishaura Car Vent Clip Freshener, a compact and innovative solution that uses your car's AC system to diffuse divine fragrances throughout the cabin. Simply clip onto your air vent and let the air conditioning do the rest.",
-        "The design is sleek and unobtrusive, adding fragrance without cluttering your dashboard or obstructing your view. When the AC is running, the air passing through the vent activates the fragrance, filling your car with a temple-like scent that calms the mind during traffic stress.",
-        "Perfect for devotees who want their vehicle to feel like a sacred space. The fragrance creates a peaceful atmosphere that complements the dashboard idol, turning every journey into a spiritual experience."
-      ],
-      packaging: {
-        type: "Blister card packaging",
-        piecesPerCarton: "72 pieces per carton",
-        moq: "36 Pieces",
-        handling: "Clip protected during shipping."
-      },
-      suggestedUse: [
-        "Clip onto car AC vent",
-        "Use in office cubicle with desk fan",
-        "Attach to portable fans",
-        "Multiple clips for larger vehicles"
-      ],
-      careInstructions: [
-        "Clip securely onto vent fins",
-        "Adjust AC direction for optimal diffusion",
-        "Replace cartridge when fragrance weakens",
-        "Clean vent regularly for best air flow"
-      ]
-    },
-    attributes: {
-      material: "ABS Plastic with Fragrance Cartridge",
-      finish: "Compact Clip Design",
-      usage: "Car AC Vent, Continuous Freshening"
-    },
-    suitableFor: "All Car Types, AC Vents",
-    MOQ: "36 Pieces"
-  },
+  // // ============ FRESHENERS & FRAGRANCES ============
+  // {
+  //   id: "24",
+  //   name: "ISHAURA ROOM FRESHENERS",
+  //   price: 70.0,
+  //   unit: "Piece",
+  //   category: "Fresheners",
+  //   subcategory: "Room Fresheners",
+  //   images: [ishauraFreshener, ishauraFreshener2, ishauraFreshener3],
+  //   badge: "hot",
+  //   rating: 4.5,
+  //   reviews: 78,
+  //   sku: "SSM-FR-001",
+  //   shortDescription: "Transform your space with the divine fragrances of Ishaura Room Fresheners. Temple-inspired scents that create a calming, spiritual atmosphere at home.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Create a temple-like atmosphere in your home with Ishaura Room Fresheners, specially formulated to evoke the serene fragrance of sacred spaces. Just as the scent of incense and flowers fills temples with divine energy, these fresheners bring that same spiritual ambiance into your daily life.",
+  //       "The Ishaura range features carefully crafted fragrances inspired by traditional pooja aromas – sandalwood, rose, jasmine, and other sacred scents. Whether in your pooja room, living room, or bedroom, these fresheners transform the atmosphere, making every breath a reminder of the divine.",
+  //       "Unlike chemical-heavy commercial fresheners, Ishaura products are designed with the spiritual aesthetic in mind. The fragrances are calming rather than overwhelming, creating an environment conducive to meditation, prayer, and peaceful living."
+  //     ],
+  //     packaging: {
+  //       type: "Spray bottle with decorative label",
+  //       piecesPerCarton: "48 pieces per carton",
+  //       moq: "24 Pieces",
+  //       handling: "Upright packaging to prevent leakage."
+  //     },
+  //     suggestedUse: [
+  //       "Pooja room ambiance",
+  //       "Living room and bedroom freshening",
+  //       "Before meditation and prayer",
+  //       "Guest welcome and special occasions"
+  //     ],
+  //     careInstructions: [
+  //       "Spray away from face and eyes",
+  //       "Keep away from open flames",
+  //       "Store in cool place away from direct sunlight",
+  //       "Keep out of reach of children"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Water-Based Fragrance Solution",
+  //     finish: "Fine Mist Spray",
+  //     usage: "Room Freshening, Spiritual Atmosphere"
+  //   },
+  //   suitableFor: "Homes, Temples, Meditation Spaces, Offices",
+  //   MOQ: "24 Pieces"
+  // },
+  // {
+  //   id: "25",
+  //   name: "Ishaura Hanging Car Diffuser & Wardrobe Freshener",
+  //   price: 50.0,
+  //   unit: "Piece",
+  //   category: "Fresheners",
+  //   subcategory: "Car & Wardrobe",
+  //   images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
+  //   badge: "new",
+  //   rating: 4.4,
+  //   reviews: 45,
+  //   sku: "SSM-FR-002",
+  //   shortDescription: "Long-lasting hanging diffuser perfect for cars and wardrobes. Elegant design with temple-inspired fragrances for continuous freshness.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Enjoy the divine fragrance of temples wherever you go with the Ishaura Hanging Car Diffuser. Designed for both vehicles and wardrobes, this elegant diffuser provides continuous, long-lasting freshness with sacred, calming scents that transform your environment.",
+  //       "The hanging design makes it perfect for rear-view mirrors in cars, adding a touch of spirituality to your daily commute. When used in wardrobes, it keeps your clothes fresh with a subtle, pleasant aroma that's not overpowering but definitely noticeable.",
+  //       "Each diffuser is crafted with care, featuring an attractive design that complements any setting. The fragrance is released slowly over weeks, providing extended use and consistent scent without the need for electricity or regular replacement."
+  //     ],
+  //     packaging: {
+  //       type: "Individual blister pack with hook",
+  //       piecesPerCarton: "100 pieces per carton",
+  //       moq: "50 Pieces",
+  //       handling: "Display-ready retail packaging."
+  //     },
+  //     suggestedUse: [
+  //       "Hang from car rear-view mirror",
+  //       "Place in wardrobe or closet",
+  //       "Use in small rooms or bathrooms",
+  //       "Gift with other devotional items"
+  //     ],
+  //     careInstructions: [
+  //       "Remove outer seal to activate fragrance",
+  //       "Hang in well-ventilated area for best diffusion",
+  //       "Keep away from direct sunlight to extend life",
+  //       "Replace when fragrance fades (typically 4-6 weeks)"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Fragrance-Infused Gel/Fabric",
+  //     finish: "Decorative Hanging Design",
+  //     usage: "Car, Wardrobe, Small Spaces"
+  //   },
+  //   suitableFor: "Vehicles, Wardrobes, Gift Items",
+  //   MOQ: "50 Pieces"
+  // },
+  // {
+  //   id: "26",
+  //   name: "Ishaura Car Vent Clip Freshener",
+  //   price: 55.0,
+  //   unit: "Piece",
+  //   category: "Fresheners",
+  //   subcategory: "Car",
+  //   images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
+  //   badge: "8%",
+  //   rating: 4.3,
+  //   reviews: 34,
+  //   sku: "SSM-FR-003",
+  //   shortDescription: "Compact clip-on car freshener that attaches to your AC vent. Enjoy continuous divine fragrance powered by your car's air conditioning.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Transform your driving experience with the Ishaura Car Vent Clip Freshener, a compact and innovative solution that uses your car's AC system to diffuse divine fragrances throughout the cabin. Simply clip onto your air vent and let the air conditioning do the rest.",
+  //       "The design is sleek and unobtrusive, adding fragrance without cluttering your dashboard or obstructing your view. When the AC is running, the air passing through the vent activates the fragrance, filling your car with a temple-like scent that calms the mind during traffic stress.",
+  //       "Perfect for devotees who want their vehicle to feel like a sacred space. The fragrance creates a peaceful atmosphere that complements the dashboard idol, turning every journey into a spiritual experience."
+  //     ],
+  //     packaging: {
+  //       type: "Blister card packaging",
+  //       piecesPerCarton: "72 pieces per carton",
+  //       moq: "36 Pieces",
+  //       handling: "Clip protected during shipping."
+  //     },
+  //     suggestedUse: [
+  //       "Clip onto car AC vent",
+  //       "Use in office cubicle with desk fan",
+  //       "Attach to portable fans",
+  //       "Multiple clips for larger vehicles"
+  //     ],
+  //     careInstructions: [
+  //       "Clip securely onto vent fins",
+  //       "Adjust AC direction for optimal diffusion",
+  //       "Replace cartridge when fragrance weakens",
+  //       "Clean vent regularly for best air flow"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "ABS Plastic with Fragrance Cartridge",
+  //     finish: "Compact Clip Design",
+  //     usage: "Car AC Vent, Continuous Freshening"
+  //   },
+  //   suitableFor: "All Car Types, AC Vents",
+  //   MOQ: "36 Pieces"
+  // },
 
-  // ============ FABRICS ============
-  {
-    id: "27",
-    name: "White Roto Fabric",
-    price: 12.0,
-    unit: "Meter",
-    category: "Pooja Fabrics",
-    subcategory: "Mandir Decoration",
-    images: [rotoFabric, mataDress, ladduGopalDress],
-    rating: 4.4,
-    reviews: 28,
-    sku: "SSM-PF-001",
-    shortDescription: "Pure white Roto fabric for mandir decoration, deity draping, and creating custom pooja items. Versatile, clean, and spiritually appropriate.",
-    fullDescription: {
-      intro: [
-        "Create a pristine, sacred atmosphere in your home mandir with this pure white Roto fabric. White symbolizes purity, peace, and spiritual clarity in Hindu tradition, making this fabric perfect for mandir decoration, deity draping, and various pooja applications.",
-        "The Roto fabric is known for its smooth texture, durability, and excellent draping quality. Whether you're creating custom deity clothes, draping your mandir backdrop, or making covers for sacred items, this fabric provides a clean, professional finish.",
-        "This versatile material can be cut and tailored to your specific needs. Many devotees use it to create matching sets for their entire mandir, ensuring a cohesive, pure white aesthetic that enhances the sanctity of their worship space."
-      ],
-      packaging: {
-        type: "Rolled on cardboard tube",
-        piecesPerCarton: "100 meters per roll",
-        moq: "50 Meters",
-        handling: "Wrapped in protective plastic."
-      },
-      suggestedUse: [
-        "Mandir backdrop and draping",
-        "Custom deity dress creation",
-        "Covering sacred items and books",
-        "Festival decoration and pandal setup"
-      ],
-      careInstructions: [
-        "Machine wash in cold water",
-        "Use mild detergent without bleach (to maintain softness)",
-        "Iron on medium heat for smooth finish",
-        "Store in clean, dry place"
-      ]
-    },
-    attributes: {
-      material: "Polyester Roto Fabric",
-      finish: "Smooth, Slightly Glossy",
-      usage: "Mandir Decoration, Custom Tailoring"
-    },
-    suitableFor: "Home Mandirs, Temples, Custom Deity Clothes",
-    MOQ: "50 Meters"
-  }
+  // // ============ FABRICS ============
+  // {
+  //   id: "27",
+  //   name: "White Roto Fabric",
+  //   price: 12.0,
+  //   unit: "Meter",
+  //   category: "Pooja Fabrics",
+  //   subcategory: "Mandir Decoration",
+  //   images: [rotoFabric, mataDress, ladduGopalDress],
+  //   rating: 4.4,
+  //   reviews: 28,
+  //   sku: "SSM-PF-001",
+  //   shortDescription: "Pure white Roto fabric for mandir decoration, deity draping, and creating custom pooja items. Versatile, clean, and spiritually appropriate.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Create a pristine, sacred atmosphere in your home mandir with this pure white Roto fabric. White symbolizes purity, peace, and spiritual clarity in Hindu tradition, making this fabric perfect for mandir decoration, deity draping, and various pooja applications.",
+  //       "The Roto fabric is known for its smooth texture, durability, and excellent draping quality. Whether you're creating custom deity clothes, draping your mandir backdrop, or making covers for sacred items, this fabric provides a clean, professional finish.",
+  //       "This versatile material can be cut and tailored to your specific needs. Many devotees use it to create matching sets for their entire mandir, ensuring a cohesive, pure white aesthetic that enhances the sanctity of their worship space."
+  //     ],
+  //     packaging: {
+  //       type: "Rolled on cardboard tube",
+  //       piecesPerCarton: "100 meters per roll",
+  //       moq: "50 Meters",
+  //       handling: "Wrapped in protective plastic."
+  //     },
+  //     suggestedUse: [
+  //       "Mandir backdrop and draping",
+  //       "Custom deity dress creation",
+  //       "Covering sacred items and books",
+  //       "Festival decoration and pandal setup"
+  //     ],
+  //     careInstructions: [
+  //       "Machine wash in cold water",
+  //       "Use mild detergent without bleach (to maintain softness)",
+  //       "Iron on medium heat for smooth finish",
+  //       "Store in clean, dry place"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Polyester Roto Fabric",
+  //     finish: "Smooth, Slightly Glossy",
+  //     usage: "Mandir Decoration, Custom Tailoring"
+  //   },
+  //   suitableFor: "Home Mandirs, Temples, Custom Deity Clothes",
+  //   MOQ: "50 Meters"
+  // }
 ];
 
 // Helper function to get product by ID

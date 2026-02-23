@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 const Footer = () => {
   const companyLinks = [
     { name: "About Us", path: "/about" },
-    { name: "Delivery Information", path: "/delivery" },
-    { name: "Privacy Policy", path: "/privacy" },
     { name: "Terms & Conditions", path: "/terms" },
     { name: "Contact Us", path: "/contact" },
   ];
@@ -16,7 +14,6 @@ const Footer = () => {
     { name: "Laddu Gopal Dress", path: "/shop" },
     { name: "Ram Mandir Poshak", path: "/shop" },
     { name: "God Statue", path: "/shop" },
-    { name: "Tilak", path: "/shop" },
     { name: "Ganga Jal", path: "/shop" },
   ];
 
@@ -52,7 +49,7 @@ const Footer = () => {
           </div>
 
           {/* Company Links */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-semibold mb-6">Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
@@ -69,7 +66,7 @@ const Footer = () => {
           </div>
 
           {/* Popular Links */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-semibold mb-6">Popular</h3>
             <ul className="space-y-3">
               {popularLinks.map((link) => (
@@ -116,9 +113,7 @@ const Footer = () => {
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-400">
-              © 2026. All rights reserved
-            </p>
+
 
             {/* Phone Numbers */}
             <div className="flex items-center gap-8">
@@ -139,7 +134,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Follow Us</span>
               <div className="flex items-center gap-2">
                 <a href="#" className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors">
@@ -155,11 +150,11 @@ const Footer = () => {
                   <Youtube className="w-4 h-4" />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <p className="text-center text-xs text-gray-500 mt-4">
-            Up to 15% discount on your first subscribe
+            © 2026. All rights reserved
           </p>
         </div>
       </div>

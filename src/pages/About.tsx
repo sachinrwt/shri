@@ -48,7 +48,7 @@ const About = () => {
     <Layout>
       {/* Breadcrumb */}
       <div className="container mx-auto px-4">
-        <Breadcrumb items={[ { label: "About us" }]} />
+        <Breadcrumb items={[{ label: "About us" }]} />
       </div>
 
       {/* About Hero Section */}
@@ -182,8 +182,8 @@ const About = () => {
               <p className="text-sm md:text-base opacity-90 mt-2">Team advisor</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">40 L - 1.5 Cr</p>
-              <p className="text-sm md:text-base opacity-90 mt-2">Annual Turnover</p>
+              <p className="hidden md:block text-4xl md:text-5xl font-bold">40 L - 2 Cr</p>
+              <p className="hidden md:block text-sm md:text-base opacity-90 mt-2">Annual Turnover</p>
             </div>
           </div>
         </div>

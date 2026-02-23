@@ -23,6 +23,8 @@ import ganeshStatue from "@/assets/products/ganesh-statue.jpg";
 import saiBabaDress from "@/assets/products/sai-baba-dress.jpg";
 import saiBabaPagdi from "@/assets/products/sai-baba-pagdi.jpg";
 import mataDress from "@/assets/products/mata-dress.jpg";
+import mataDress2 from "@/assets/products/mata-dress (2).jpg";
+import mataDress3 from "@/assets/products/mata-dress (3).jpg";
 import shivParvatiDashboard from "@/assets/products/shiv-parvati-dashboard.jpg";
 import bhageshwarDashboard from "@/assets/products/bhageshwar-dashboard.jpg";
 import ishauraVentClip from "@/assets/products/ishaura-vent-clip.jpeg";
@@ -40,6 +42,20 @@ import kumkumSindur from "@/assets/products/kumkum-sindur.jpg";
 import jaiShriShyamTilak from "@/assets/products/jai-shri-shyam-tilak.jpg";
 import gangaJal from "@/assets/products/ganga-jal.jpg";
 import gangaJal2 from "@/assets/products/ganga-jal(1).jpeg";
+import saiBabaDress1 from "@/assets/products/yellow-sai-baba-dress.jpg";
+import saiBabaDress2 from "@/assets/products/yellow-sai-baba-dress (2).jpg";
+import saiBabaDress3 from "@/assets/products/blue-sai-baba-dress.jpg";
+import saiBabaDress4 from "@/assets/products/orange-sai-baba-dress.jpg";
+import saiBabaDress5 from "@/assets/products/pink-sai-baba-dress.jpg";
+import hanumanchola from "@/assets/products/h-chola.jpg";
+import hanumanchola2 from "@/assets/products/h-chola-orange.jpg";
+import hanumanchola3 from "@/assets/products/h-chola (2).jpg";
+import jaiGuruJiChola from "@/assets/products/jai-guru-ji.jpg";
+import jaiGuruJiChola2 from "@/assets/products/jai-guru-ji (2).jpg";
+import khatuShyamDress from "@/assets/products/khatu-shyam-dress.jpg";
+import khatuShyamDress2 from "@/assets/products/khatu-shyam-dress (2).jpg";
+import khatuShyamDress3 from "@/assets/products/khatu-shyam-dress (3).jpg";
+
 
 
 import rotoFabric from "@/assets/products/roto-fabric.jpg";
@@ -234,7 +250,7 @@ export const products: Product[] = [
     MOQ: "20 Pieces"
   },
 
-  
+
   {
     id: "4",
     name: "Ganesh Statue Blessing Idol",
@@ -338,25 +354,26 @@ export const products: Product[] = [
   },
 
   // ============ CAR DASHBOARD IDOLS ============
-  
+
   {
     id: "6",
-    name: "Khatu Shyam Baba Car Dashboard Idol",
-    price: 70.0,
+    name: "Khatu Shyam Baba Silk Dress",
+    price: 100.0,
     unit: "Piece",
-    category: "Car Dashboard Idols",
-    subcategory: "Hindu",
-    images: [khatuShyamDashboard, guruNanakDashboard, saiBabaDashboard],
+    category: "Deity Dresses",
+    subcategory: "Khatu Shyam",
+    images: [khatuShyamDress, khatuShyamDress2, khatuShyamDress3],
+    colour: ["Red", "orange","blue","pink"],
     badge: "8%",
     rating: 4.5,
     reviews: 22,
     sku: "SSM-CD-002",
-    shortDescription: "Keep Khatu Shyam Baba as your divine travel companion with this elegant car dashboard idol. Experience his protective blessings on every journey you undertake.",
+    shortDescription: "Dress your Khatu Shyam Baba idol in divine elegance with this premium silk dress, crafted to reflect Khatu Shyam Baba's simple yet spiritually profound appearance. Just as Khatu Shyam Baba lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
     fullDescription: {
       intro: [
-        "Transform your car into a moving sanctuary with this divine Khatu Shyam Baba Car Dashboard Idol. For the countless devotees who chant 'Jai Shree Shyam' with every breath, this idol serves as a constant reminder of Baba's protective grace during all travels.",
-        "Khatu Shyam Ji, known for his unwavering commitment to truth and his sacrifice in the Mahabharata, continues to bless his devotees with courage, protection, and the strength to overcome life's obstacles. Having his idol on your dashboard brings these blessings into every commute, road trip, and journey.",
-        "The compact yet detailed design captures Shyam Baba's divine essence perfectly. The sturdy non-slip base ensures the idol remains stable even during bumpy rides, while the vibrant colors remain fade-resistant against sunlight."
+        "Dress your Khatu Shyam Baba idol in divine elegance with this premium silk dress, crafted to reflect Khatu Shyam Baba's simple yet spiritually profound appearance. Just as Khatu Shyam Baba lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
+        "The red and orange color symbolizes Khatu Shyam Baba's teachings of purity, truth, and the light of divine wisdom that he shared with all who came to him. Dressing your Khatu Shyam Baba idol in this traditional attire is an act of devotion that connects you with the Khatu Shyam Baba tradition.",
+        "Made from quality silk fabric, this dress drapes naturally around your Khatu Shyam Baba idol, creating the iconic look that millions of devotees recognize and revere. The comfortable fit works with various idol sizes, ensuring Khatu Shyam Baba's divine form is always presented with dignity."
       ],
       packaging: {
         type: "Individual box with foam insert",
@@ -365,10 +382,10 @@ export const products: Product[] = [
         handling: "Shock-resistant packaging for safe transit."
       },
       suggestedUse: [
-        "Place on car dashboard facing the driver",
-        "Suitable for truck cabins and commercial vehicles",
-        "Can be placed on office desk or bedside table",
-        "Perfect for devotees visiting Khatu Dham"
+        "Daily worship of Khatu Shyam Baba idol",
+        "Navratri celebrations",
+        "Lakshmi Puja during Diwali",
+        "Friday worship and special occasions"
       ],
       careInstructions: [
         "Clean regularly with a dry microfiber cloth",
@@ -378,13 +395,13 @@ export const products: Product[] = [
       ]
     },
     attributes: {
-      material: "Durable Resin Composite",
+      material: "Quality Silk Fabric",
       finish: "Vibrant Color Painted",
       weight: "Approx. 55 gm",
       size: "3 x 2.5 Inch",
       usage: "Vehicle Dashboard, Travel Protection"
     },
-    suitableFor: "Vehicles, Office, Personal Altar",
+    suitableFor: "Khatu Shyam Baba Idols (Various Sizes)",
     MOQ: "24 Pieces"
   },
   {
@@ -437,7 +454,7 @@ export const products: Product[] = [
     suitableFor: "Small Spaces, Travel, Personal Altar",
     MOQ: "12 Pieces"
   },
- 
+
   {
     id: "8",
     name: "Shiv Parvati Ji Car Dashboard Idol",
@@ -679,35 +696,35 @@ export const products: Product[] = [
   },
   {
     id: "13",
-    name: "RAM MANDIR POSHAK",
-    price: 90.0,
+    name: "Sai Baba Dress",
+    price: 25.00,
     unit: "Piece",
     category: "Deity Dresses",
     subcategory: "Special Collection",
-    images: [ramMandirPoshak, ladduGopalDress, silkKhatuShyam],
+    images: [saiBabaDress1, saiBabaDress2, saiBabaDress3, saiBabaDress4, saiBabaDress5],
     badge: "8%",
     rating: 4.8,
     reviews: 56,
     sku: "SSM-DD-003",
-    sizes: ["Size 1", "Size 2", "Size 3", "Size 4", "Size 5"],
-    shortDescription: "Celebrate the historic Ram Mandir with this special edition poshak inspired by the Ayodhya temple. A commemorative dress for your Laddu Gopal or Ram Lalla idol.",
+    colour: ["Yellow", "Blue", "Orange", "Pink"],
+    shortDescription: "Dress your Sai Baba idol in divine elegance with this premium collection of deity dresses. Each dress is crafted with fine fabric, intricate embroidery, and vibrant colors to reflect the devotion and love of your faith.",
     fullDescription: {
       intro: [
-        "Commemorate the historic consecration of the Ram Mandir in Ayodhya with this special edition RAM MANDIR POSHAK. Inspired by the grandeur of the temple and the divine form of Ram Lalla, this dress allows devotees to bring a piece of this momentous occasion into their homes.",
+        "Dress your Sai Baba idol in divine elegance with this premium collection of deity dresses. Each dress is crafted with fine fabric, intricate embroidery, and vibrant colors to reflect the devotion and love of your faith.",
         "The poshak features design elements inspired by the temple architecture and the traditional attire seen in the Ayodhya Ram Mandir. The rich saffron and gold color scheme reflects the spiritual significance of the temple, while the intricate embroidery pays homage to the craftsmanship that went into building this sacred site.",
         "For millions of Ram Bhakts who witnessed the Pran Pratishtha ceremony and those who continue to celebrate Lord Ram's return to his birthplace, this dress serves as a daily reminder of faith, devotion, and the fulfillment of a 500-year-old dream."
       ],
       packaging: {
-        type: "Premium box with Ram Mandir imagery",
+        type: "Premium box with Sai Baba imagery",
         piecesPerCarton: "60 pieces per carton",
         moq: "30 Pieces",
         handling: "Gift-ready packaging with blessing card."
       },
       suggestedUse: [
         "Ram Navami celebrations",
-        "Daily worship of Ram Lalla or Laddu Gopal",
-        "Commemorative collection for Ram Bhakts",
-        "Special gift for devotees who visited Ayodhya"
+        "Daily worship of sai baba",
+        "Commemorative collection for sai baba",
+        "Special gift for devotees who visited Shirdi"
       ],
       careInstructions: [
         "Dry clean recommended for best results",
@@ -731,7 +748,7 @@ export const products: Product[] = [
     unit: "Piece",
     category: "Deity Dresses",
     subcategory: "Mata",
-    images: [mataDress, ramMandirPoshak, ladduGopalDress],
+    images: [mataDress, mataDress2, mataDress3],
     badge: "hot",
     rating: 4.5,
     reviews: 38,
@@ -775,35 +792,36 @@ export const products: Product[] = [
   // ============ SAI BABA COLLECTION ============
   {
     id: "15",
-    name: "Sai Baba Dress Pure White",
-    price: 85.0,
-    unit: "Piece",
+    name: "Hanuman Ji Ka Chola",
+    price: 504.00,
+    unit: "Dozen",
     category: "Deity Dresses",
-    subcategory: "Sai Baba",
-    images: [saiBabaDress, saiBabaPagdi, mataDress],
+    subcategory: "Hanuman Ji",
+    images: [hanumanchola, hanumanchola2, hanumanchola3],
     badge: "new",
     rating: 4.6,
     reviews: 24,
     sku: "SSM-DD-005",
-    sizes: ["8 Inch", "10 Inch", "12 Inch", "18 Inch"],
-    shortDescription: "Authentic Shirdi Sai Baba dress in pure white, reflecting Baba's simple yet spiritually profound appearance. Perfect for Sai Baba idols of various sizes.",
+    colour: ["Red", "Orange"],
+    
+    shortDescription: "Honor the simplicity and spiritual purity of Hanuman Ji with this authentic pure red and orange chola, crafted to reflect Hanuman Ji's simple yet spiritually profound appearance. Just as Hanuman Ji lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
     fullDescription: {
       intro: [
-        "Honor the simplicity and spiritual purity of Shirdi Sai Baba with this authentic pure white dress, crafted to reflect Baba's modest yet divine appearance. Just as Sai Baba lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
-        "The white color symbolizes Sai Baba's teachings of purity, truth, and the light of divine wisdom that he shared with all who came to him. Dressing your Sai Baba idol in this traditional attire is an act of devotion that connects you with the Shirdi tradition.",
-        "Made from quality cotton fabric, this dress drapes naturally around your Sai Baba idol, creating the iconic look that millions of devotees recognize and revere. The comfortable fit works with various idol sizes, ensuring Baba's divine form is always presented with dignity."
+        "Honor the simplicity and spiritual purity of Hanuman Ji with this authentic pure red and orange chola, crafted to reflect Hanuman Ji's simple yet spiritually profound appearance. Just as Hanuman Ji lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
+        "The red and orange color symbolizes Hanuman Ji's teachings of purity, truth, and the light of divine wisdom that he shared with all who came to him. Dressing your Hanuman Ji idol in this traditional attire is an act of devotion that connects you with the Hanuman Ji tradition.",
+        "Made from quality cotton fabric, this dress drapes naturally around your Hanuman Ji idol, creating the iconic look that millions of devotees recognize and revere. The comfortable fit works with various idol sizes, ensuring Hanuman Ji's divine form is always presented with dignity."
       ],
       packaging: {
         type: "Clean white packaging",
-        piecesPerCarton: "50 pieces per carton",
+        piecesPerCarton: "12 pieces per carton",
         moq: "25 Pieces",
         handling: "Ironed and folded, ready for use."
       },
       suggestedUse: [
-        "Daily worship of Sai Baba idol",
-        "Thursday Sai Baba puja",
-        "Sai Baba Jayanti celebrations",
-        "Shirdi pilgrimage souvenirs"
+        "Daily worship of Hanuman Ji idol",
+        "Thursday Hanuman Ji puja",
+        "Hanuman Jayanti celebrations",
+        "Hanuman pilgrimage souvenirs"
       ],
       careInstructions: [
         "Wash in cold water with mild detergent",
@@ -813,109 +831,109 @@ export const products: Product[] = [
       ]
     },
     attributes: {
-      material: "Pure Cotton",
+      material: "Quality Cotton Fabric",
       finish: "Simple White with Clean Hem",
       usage: "Sai Baba Idol Dressing, Shirdi Style"
     },
-    suitableFor: "Sai Baba Idols (8-18 Inch)",
-    MOQ: "25 Pieces"
+    suitableFor: "Hanuman Ji Idols (Various Sizes)",
+    MOQ: "12 Pieces"
   },
   {
     id: "16",
-    name: "Sai Baba Pagdi Traditional",
-    price: 45.0,
+    name: "Jai Guru Ji Chola",
+    price: 5100.0,
     unit: "Piece",
     category: "Deity Accessories",
-    subcategory: "Sai Baba",
-    images: [saiBabaPagdi, saiBabaDress, khatuShyamDashboard],
+    subcategory: "Jai Guru Ji",
+    images: [jaiGuruJiChola,jaiGuruJiChola2],
     badge: "hot",
     rating: 4.4,
     reviews: 19,
     sku: "SSM-DA-002",
-    sizes: ["Small", "Medium", "Large"],
-    shortDescription: "Complete your Sai Baba idol's look with this traditional pagdi (turban). Authentic Shirdi style headwear that reflects Baba's iconic appearance.",
+    colour: ["Red", "Orange"],
+    shortDescription: "Complete your Jai Guru Ji idol's look with this traditional chola, crafted to reflect Jai Guru Ji's simple yet spiritually profound appearance. Just as Jai Guru Ji lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
     fullDescription: {
       intro: [
-        "Crown your Sai Baba idol with this authentic traditional Pagdi, recreating the iconic look of Shirdi Sai Baba that has been etched in the hearts of millions. The pagdi is an essential element of Baba's appearance, representing his unique spiritual identity.",
-        "This carefully crafted headwear reflects the style Sai Baba wore during his time in Shirdi. The traditional wrapping style and appropriate proportions ensure your idol looks authentic, as if Baba himself blessed the pagdi.",
-        "For Sai devotees who wish to dress their Baba with complete traditional attire, this pagdi is the perfect complement to the white kafni dress. Together, they create the complete Shirdi Sai look that inspires devotion and reverence."
+        "Complete your Jai Guru Ji idol's look with this traditional chola, crafted to reflect Jai Guru Ji's simple yet spiritually profound appearance. Just as Jai Guru Ji lived a life of simplicity, this dress embodies that same essence – pure, unadorned, yet profoundly spiritual.",
+        "The red and orange color symbolizes Jai Guru Ji's teachings of purity, truth, and the light of divine wisdom that he shared with all who came to him. Dressing your Jai Guru Ji idol in this traditional attire is an act of devotion that connects you with the Jai Guru Ji tradition.",
+        "Made from quality cotton fabric, this dress drapes naturally around your Jai Guru Ji idol, creating the iconic look that millions of devotees recognize and revere. The comfortable fit works with various idol sizes, ensuring Jai Guru Ji's divine form is always presented with dignity."
       ],
       packaging: {
-        type: "Individual box for shape preservation",
+        type: "Individual poly packaging",
         piecesPerCarton: "100 pieces per carton",
         moq: "50 Pieces",
-        handling: "Structured packaging to maintain pagdi shape."
+        handling: "Ironed and folded, ready for use."
       },
       suggestedUse: [
-        "Complete Sai Baba dressing",
-        "Thursday special puja",
-        "Guru Purnima celebrations",
-        "Sai Baba Jayanti decorations"
+        "Daily worship of Jai Guru Ji idol",
+        "Thursday Jai Guru Ji puja",
+        "Jai Guru Ji Jayanti celebrations",
+        "Jai Guru Ji pilgrimage souvenirs"
       ],
       careInstructions: [
-        "Store on a round surface to maintain shape",
-        "Spot clean if needed",
-        "Keep away from dust when not in use",
-        "Handle gently to preserve structure"
+        "Wash in cold water with mild detergent",
+        "Bleach can be used sparingly to maintain whiteness",
+        "Dry in sunlight for natural whitening",
+        "Iron for crisp, neat appearance"
       ]
     },
     attributes: {
-      material: "Fabric on Wire Frame",
+      material: "Quality Cotton Fabric",
       finish: "Pre-Shaped Traditional Style",
-      usage: "Sai Baba Idol Headwear"
+      usage: "Jai Guru Ji Idol Dressing, Shirdi Style"
     },
-    suitableFor: "Sai Baba Idols (Various Sizes)",
+    suitableFor: "Jai Guru Ji Idols (Various Sizes)",
     MOQ: "50 Pieces"
   },
-  {
-    id: "17",
-    name: "Silk Khatu Shyam Dress",
-    price: 100.0,
-    unit: "Piece",
-    category: "Deity Dresses",
-    subcategory: "Khatu Shyam",
-    images: [silkKhatuShyam, ramMandirPoshak, ladduGopalDress],
-    badge: "hot",
-    rating: 4.7,
-    reviews: 33,
-    sku: "SSM-DD-006",
-    sizes: ["6 Inch", "8 Inch", "10 Inch", "12 Inch"],
-    shortDescription: "Premium silk dress for Khatu Shyam Baba idols, featuring rich embroidery and traditional design. Perfect for festivals and special pujas.",
-    fullDescription: {
-      intro: [
-        "Dress your Khatu Shyam Baba in this luxurious silk outfit, crafted for devotees who wish to offer the finest attire to their beloved deity. The rich silk fabric and intricate embroidery reflect the reverence and love that Shyam Bhakts hold for Baba.",
-        "This premium dress features traditional motifs and a color palette that complements the divine form of Khatu Shyam Ji. The silk's natural sheen creates a beautiful play of light during aarti, enhancing the spiritual ambiance of your pooja.",
-        "For special occasions like Khatu Shyam Jayanti, Falgun Mela, and other festivals, this silk dress ensures your deity looks resplendent. It's also perfect for devotees who return from Khatu Dham and wish to dress their home idol in celebration."
-      ],
-      packaging: {
-        type: "Premium silk pouch packaging",
-        piecesPerCarton: "40 pieces per carton",
-        moq: "20 Pieces",
-        handling: "Folded with tissue paper to prevent creasing."
-      },
-      suggestedUse: [
-        "Khatu Shyam Jayanti celebrations",
-        "Falgun Mela special puja",
-        "Sunday worship",
-        "Special vrat and mannat fulfillment"
-      ],
-      careInstructions: [
-        "Dry clean recommended",
-        "If hand washing, use cold water and silk detergent",
-        "Never wring silk – roll in towel to remove water",
-        "Iron on silk setting with cloth barrier"
-      ]
-    },
-    attributes: {
-      material: "Pure Silk with Zari",
-      finish: "Hand Embroidered with Stone Work",
-      usage: "Premium Deity Dressing, Festival Wear"
-    },
-    suitableFor: "Khatu Shyam Baba Idols (6-12 Inch)",
-    MOQ: "20 Pieces"
-  },
+  // {
+  //   id: "17",
+  //   name: "Silk Khatu Shyam Dress",
+  //   price: 100.0,
+  //   unit: "Piece",
+  //   category: "Deity Dresses",
+  //   subcategory: "Khatu Shyam",
+  //   images: [silkKhatuShyam, ramMandirPoshak, ladduGopalDress],
+  //   badge: "hot",
+  //   rating: 4.7,
+  //   reviews: 33,
+  //   sku: "SSM-DD-006",
+  //   sizes: ["6 Inch", "8 Inch", "10 Inch", "12 Inch"],
+  //   shortDescription: "Premium silk dress for Khatu Shyam Baba idols, featuring rich embroidery and traditional design. Perfect for festivals and special pujas.",
+  //   fullDescription: {
+  //     intro: [
+  //       "Dress your Khatu Shyam Baba in this luxurious silk outfit, crafted for devotees who wish to offer the finest attire to their beloved deity. The rich silk fabric and intricate embroidery reflect the reverence and love that Shyam Bhakts hold for Baba.",
+  //       "This premium dress features traditional motifs and a color palette that complements the divine form of Khatu Shyam Ji. The silk's natural sheen creates a beautiful play of light during aarti, enhancing the spiritual ambiance of your pooja.",
+  //       "For special occasions like Khatu Shyam Jayanti, Falgun Mela, and other festivals, this silk dress ensures your deity looks resplendent. It's also perfect for devotees who return from Khatu Dham and wish to dress their home idol in celebration."
+  //     ],
+  //     packaging: {
+  //       type: "Premium silk pouch packaging",
+  //       piecesPerCarton: "40 pieces per carton",
+  //       moq: "20 Pieces",
+  //       handling: "Folded with tissue paper to prevent creasing."
+  //     },
+  //     suggestedUse: [
+  //       "Khatu Shyam Jayanti celebrations",
+  //       "Falgun Mela special puja",
+  //       "Sunday worship",
+  //       "Special vrat and mannat fulfillment"
+  //     ],
+  //     careInstructions: [
+  //       "Dry clean recommended",
+  //       "If hand washing, use cold water and silk detergent",
+  //       "Never wring silk – roll in towel to remove water",
+  //       "Iron on silk setting with cloth barrier"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Pure Silk with Zari",
+  //     finish: "Hand Embroidered with Stone Work",
+  //     usage: "Premium Deity Dressing, Festival Wear"
+  //   },
+  //   suitableFor: "Khatu Shyam Baba Idols (6-12 Inch)",
+  //   MOQ: "20 Pieces"
+  // },
 
-  // ============ POOJA ITEMS & POWDERS ============
+  // // ============ POOJA ITEMS & POWDERS ============
   {
     id: "18",
     name: "25 gm Kesar Ashtagandha Chandan Powder",
@@ -963,53 +981,53 @@ export const products: Product[] = [
     suitableFor: "Daily Worship, Temple Rituals, Special Occasions",
     MOQ: "24 Jars"
   },
-  {
-    id: "19",
-    name: "100 Gm Kashi Dev Abhyang Ubtan Powder",
-    price: 40.0,
-    unit: "Pack",
-    category: "Pooja Items",
-    subcategory: "Sacred Powders",
-    images: [ashtagandhaPowder, kesarChandan, chandanPowder],
-    badge: "12%",
-    rating: 4.5,
-    reviews: 42,
-    sku: "SSM-PI-002",
-    shortDescription: "Traditional Kashi (Varanasi) Abhyang Ubtan for sacred bathing rituals. A purifying blend used in deity abhishek and personal spiritual cleansing.",
-    fullDescription: {
-      intro: [
-        "From the sacred ghats of Kashi (Varanasi), comes this traditional Abhyang Ubtan powder, prepared according to ancient recipes passed down through generations of temple priests. This sacred blend is used for deity abhishek and personal spiritual purification.",
-        "The Abhyang ritual, mentioned in Ayurvedic and Vedic texts, involves applying this special ubtan before ceremonial bathing. The blend of herbs and sacred ingredients cleanses not just the body but also purifies the aura, preparing one for worship and meditation.",
-        "Each ingredient in this ubtan is selected for its spiritual significance and purifying properties. When used for deity abhishek, it serves as an offering of purity; when used personally, it connects the devotee with the cleansing traditions of Kashi's ancient temples."
-      ],
-      packaging: {
-        type: "Sealed pouch with zip lock",
-        piecesPerCarton: "100 packs per carton",
-        moq: "50 Packs",
-        handling: "Moisture-proof packaging for longevity."
-      },
-      suggestedUse: [
-        "Deity abhishek during special pujas",
-        "Personal use before temple visits",
-        "Ganges bathing rituals",
-        "Shradh and pitru ceremonies"
-      ],
-      careInstructions: [
-        "Store in dry place away from moisture",
-        "Reseal zip lock after each use",
-        "Keep away from direct sunlight",
-        "Use within 18 months of manufacture"
-      ]
-    },
-    attributes: {
-      material: "Traditional Herbal Blend",
-      finish: "Coarse Powder",
-      weight: "100 gm",
-      usage: "Abhishek, Spiritual Bathing, Purification"
-    },
-    suitableFor: "Deity Abhishek, Personal Cleansing, Rituals",
-    MOQ: "50 Packs"
-  },
+  // {
+  //   id: "19",
+  //   name: "100 Gm Kashi Dev Abhyang Ubtan Powder",
+  //   price: 40.0,
+  //   unit: "Pack",
+  //   category: "Pooja Items",
+  //   subcategory: "Sacred Powders",
+  //   images: [ashtagandhaPowder, kesarChandan, chandanPowder],
+  //   badge: "12%",
+  //   rating: 4.5,
+  //   reviews: 42,
+  //   sku: "SSM-PI-002",
+  //   shortDescription: "Traditional Kashi (Varanasi) Abhyang Ubtan for sacred bathing rituals. A purifying blend used in deity abhishek and personal spiritual cleansing.",
+  //   fullDescription: {
+  //     intro: [
+  //       "From the sacred ghats of Kashi (Varanasi), comes this traditional Abhyang Ubtan powder, prepared according to ancient recipes passed down through generations of temple priests. This sacred blend is used for deity abhishek and personal spiritual purification.",
+  //       "The Abhyang ritual, mentioned in Ayurvedic and Vedic texts, involves applying this special ubtan before ceremonial bathing. The blend of herbs and sacred ingredients cleanses not just the body but also purifies the aura, preparing one for worship and meditation.",
+  //       "Each ingredient in this ubtan is selected for its spiritual significance and purifying properties. When used for deity abhishek, it serves as an offering of purity; when used personally, it connects the devotee with the cleansing traditions of Kashi's ancient temples."
+  //     ],
+  //     packaging: {
+  //       type: "Sealed pouch with zip lock",
+  //       piecesPerCarton: "100 packs per carton",
+  //       moq: "50 Packs",
+  //       handling: "Moisture-proof packaging for longevity."
+  //     },
+  //     suggestedUse: [
+  //       "Deity abhishek during special pujas",
+  //       "Personal use before temple visits",
+  //       "Ganges bathing rituals",
+  //       "Shradh and pitru ceremonies"
+  //     ],
+  //     careInstructions: [
+  //       "Store in dry place away from moisture",
+  //       "Reseal zip lock after each use",
+  //       "Keep away from direct sunlight",
+  //       "Use within 18 months of manufacture"
+  //     ]
+  //   },
+  //   attributes: {
+  //     material: "Traditional Herbal Blend",
+  //     finish: "Coarse Powder",
+  //     weight: "100 gm",
+  //     usage: "Abhishek, Spiritual Bathing, Purification"
+  //   },
+  //   suitableFor: "Deity Abhishek, Personal Cleansing, Rituals",
+  //   MOQ: "50 Packs"
+  // },
   {
     id: "20",
     name: "Ashtagandha Chandan Powder Temple Grade",
@@ -1017,10 +1035,10 @@ export const products: Product[] = [
     unit: "Pack",
     category: "Pooja Items",
     subcategory: "Chandan & Tilak",
-    images: [chandanPowder,chandanPowder2, chandanPowder3],
+    images: [chandanPowder, chandanPowder2, chandanPowder3],
     badge: "8%",
     rating: 4.6,
-    reviews: 38,  
+    reviews: 38,
     sku: "SSM-PI-003",
     shortDescription: "Premium temple-grade Chandan powder for tilak and pooja. Authentic sandalwood fragrance with saffron infusion for divine rituals.",
     fullDescription: {
@@ -1147,53 +1165,53 @@ export const products: Product[] = [
   //   suitableFor: "Khatu Shyam Devotees, Daily Use, Travel",
   //   MOQ: "100 Pieces"
   // },
-  // {
-  //   id: "23",
-  //   name: "50ml Ganga Jal",
-  //   price: 10.0,
-  //   unit: "Piece",
-  //   category: "Pooja Items",
-  //   subcategory: "Holy Water",
-  //   images: [gangaJal, gangaJal2],
-  //   badge: "9%",
-  //   rating: 4.9,
-  //   reviews: 234,
-  //   sku: "SSM-PI-006",
-  //   shortDescription: "Sacred Ganga Jal (Holy Ganges Water) for purification rituals, pooja, and spiritual ceremonies. Sourced from the sacred Ganges river.",
-  //   fullDescription: {
-  //     intro: [
-  //       "Bring the sacred purifying waters of Mother Ganga into your home with this authentic Ganga Jal. For millions of Hindus, the Ganges is not just a river but a goddess – Ganga Mata – whose waters have the power to purify the soul and wash away sins.",
-  //       "This holy water is sourced from the sacred Ganges river and carefully bottled to preserve its spiritual potency. Whether used for daily pooja, mixing with other waters for rituals, or kept at home for auspicious occasions, Ganga Jal is an essential element of Hindu worship.",
-  //       "The spiritual significance of Ganga Jal extends beyond life itself – it is used in final rites to ensure the departed soul's peaceful journey. Having Ganga Jal at home provides both daily spiritual benefit and the assurance of its availability when most needed."
-  //     ],
-  //     packaging: {
-  //       type: "Sealed plastic bottle with sacred imagery",
-  //       piecesPerCarton: "200 bottles per carton",
-  //       moq: "50 Pieces",
-  //       handling: "Leak-proof sealed bottles."
-  //     },
-  //     suggestedUse: [
-  //       "Daily pooja and aarti",
-  //       "Deity abhishek and sprinkling",
-  //       "Purification of new purchases and spaces",
-  //       "Mixing with regular water for sacred bath"
-  //     ],
-  //     careInstructions: [
-  //       "Store in a clean, sacred space",
-  //       "Keep bottle sealed until use",
-  //       "Do not contaminate with impure substances",
-  //       "Handle with reverence as sacred water"
-  //     ]
-  //   },
-  //   attributes: {
-  //     material: "Holy Ganges River Water",
-  //     finish: "Clear Sacred Water",
-  //     weight: "50 ml",
-  //     usage: "Pooja, Abhishek, Purification, Last Rites"
-  //   },
-  //   suitableFor: "All Hindu Rituals, Home Worship, Temples",
-  //   MOQ: "50 Pieces"
-  // },
+  {
+    id: "23",
+    name: "50ml Ganga Jal",
+    price: 10.0,
+    unit: "Piece",
+    category: "Pooja Items",
+    subcategory: "Holy Water",
+    images: [gangaJal, gangaJal2],
+    badge: "9%",
+    rating: 4.9,
+    reviews: 234,
+    sku: "SSM-PI-006",
+    shortDescription: "Sacred Ganga Jal (Holy Ganges Water) for purification rituals, pooja, and spiritual ceremonies. Sourced from the sacred Ganges river.",
+    fullDescription: {
+      intro: [
+        "Bring the sacred purifying waters of Mother Ganga into your home with this authentic Ganga Jal. For millions of Hindus, the Ganges is not just a river but a goddess – Ganga Mata – whose waters have the power to purify the soul and wash away sins.",
+        "This holy water is sourced from the sacred Ganges river and carefully bottled to preserve its spiritual potency. Whether used for daily pooja, mixing with other waters for rituals, or kept at home for auspicious occasions, Ganga Jal is an essential element of Hindu worship.",
+        "The spiritual significance of Ganga Jal extends beyond life itself – it is used in final rites to ensure the departed soul's peaceful journey. Having Ganga Jal at home provides both daily spiritual benefit and the assurance of its availability when most needed."
+      ],
+      packaging: {
+        type: "Sealed plastic bottle with sacred imagery",
+        piecesPerCarton: "200 bottles per carton",
+        moq: "50 Pieces",
+        handling: "Leak-proof sealed bottles."
+      },
+      suggestedUse: [
+        "Daily pooja and aarti",
+        "Deity abhishek and sprinkling",
+        "Purification of new purchases and spaces",
+        "Mixing with regular water for sacred bath"
+      ],
+      careInstructions: [
+        "Store in a clean, sacred space",
+        "Keep bottle sealed until use",
+        "Do not contaminate with impure substances",
+        "Handle with reverence as sacred water"
+      ]
+    },
+    attributes: {
+      material: "Holy Ganges River Water",
+      finish: "Clear Sacred Water",
+      weight: "50 ml",
+      usage: "Pooja, Abhishek, Purification, Last Rites"
+    },
+    suitableFor: "All Hindu Rituals, Home Worship, Temples",
+    MOQ: "50 Pieces"
+  },
 
   // // ============ FRESHENERS & FRAGRANCES ============
   // {
@@ -1288,52 +1306,52 @@ export const products: Product[] = [
   //   suitableFor: "Vehicles, Wardrobes, Gift Items",
   //   MOQ: "50 Pieces"
   // },
-  // {
-  //   id: "26",
-  //   name: "Ishaura Car Vent Clip Freshener",
-  //   price: 55.0,
-  //   unit: "Piece",
-  //   category: "Fresheners",
-  //   subcategory: "Car",
-  //   images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
-  //   badge: "8%",
-  //   rating: 4.3,
-  //   reviews: 34,
-  //   sku: "SSM-FR-003",
-  //   shortDescription: "Compact clip-on car freshener that attaches to your AC vent. Enjoy continuous divine fragrance powered by your car's air conditioning.",
-  //   fullDescription: {
-  //     intro: [
-  //       "Transform your driving experience with the Ishaura Car Vent Clip Freshener, a compact and innovative solution that uses your car's AC system to diffuse divine fragrances throughout the cabin. Simply clip onto your air vent and let the air conditioning do the rest.",
-  //       "The design is sleek and unobtrusive, adding fragrance without cluttering your dashboard or obstructing your view. When the AC is running, the air passing through the vent activates the fragrance, filling your car with a temple-like scent that calms the mind during traffic stress.",
-  //       "Perfect for devotees who want their vehicle to feel like a sacred space. The fragrance creates a peaceful atmosphere that complements the dashboard idol, turning every journey into a spiritual experience."
-  //     ],
-  //     packaging: {
-  //       type: "Blister card packaging",
-  //       piecesPerCarton: "72 pieces per carton",
-  //       moq: "36 Pieces",
-  //       handling: "Clip protected during shipping."
-  //     },
-  //     suggestedUse: [
-  //       "Clip onto car AC vent",
-  //       "Use in office cubicle with desk fan",
-  //       "Attach to portable fans",
-  //       "Multiple clips for larger vehicles"
-  //     ],
-  //     careInstructions: [
-  //       "Clip securely onto vent fins",
-  //       "Adjust AC direction for optimal diffusion",
-  //       "Replace cartridge when fragrance weakens",
-  //       "Clean vent regularly for best air flow"
-  //     ]
-  //   },
-  //   attributes: {
-  //     material: "ABS Plastic with Fragrance Cartridge",
-  //     finish: "Compact Clip Design",
-  //     usage: "Car AC Vent, Continuous Freshening"
-  //   },
-  //   suitableFor: "All Car Types, AC Vents",
-  //   MOQ: "36 Pieces"
-  // },
+  {
+    id: "26",
+    name: "Ishaura Car Vent Clip Freshener",
+    price: 55.0,
+    unit: "Piece",
+    category: "Fresheners",
+    subcategory: "Car",
+    images: [ishauraVentClip, ishauraVentClip2, ishauraVentClip3],
+    badge: "8%",
+    rating: 4.3,
+    reviews: 34,
+    sku: "SSM-FR-003",
+    shortDescription: "Compact clip-on car freshener that attaches to your AC vent. Enjoy continuous divine fragrance powered by your car's air conditioning.",
+    fullDescription: {
+      intro: [
+        "Transform your driving experience with the Ishaura Car Vent Clip Freshener, a compact and innovative solution that uses your car's AC system to diffuse divine fragrances throughout the cabin. Simply clip onto your air vent and let the air conditioning do the rest.",
+        "The design is sleek and unobtrusive, adding fragrance without cluttering your dashboard or obstructing your view. When the AC is running, the air passing through the vent activates the fragrance, filling your car with a temple-like scent that calms the mind during traffic stress.",
+        "Perfect for devotees who want their vehicle to feel like a sacred space. The fragrance creates a peaceful atmosphere that complements the dashboard idol, turning every journey into a spiritual experience."
+      ],
+      packaging: {
+        type: "Blister card packaging",
+        piecesPerCarton: "72 pieces per carton",
+        moq: "36 Pieces",
+        handling: "Clip protected during shipping."
+      },
+      suggestedUse: [
+        "Clip onto car AC vent",
+        "Use in office cubicle with desk fan",
+        "Attach to portable fans",
+        "Multiple clips for larger vehicles"
+      ],
+      careInstructions: [
+        "Clip securely onto vent fins",
+        "Adjust AC direction for optimal diffusion",
+        "Replace cartridge when fragrance weakens",
+        "Clean vent regularly for best air flow"
+      ]
+    },
+    attributes: {
+      material: "ABS Plastic with Fragrance Cartridge",
+      finish: "Compact Clip Design",
+      usage: "Car AC Vent, Continuous Freshening"
+    },
+    suitableFor: "All Car Types, AC Vents",
+    MOQ: "36 Pieces"
+  },
 
   // // ============ FABRICS ============
   // {
@@ -1392,7 +1410,7 @@ export const getProductById = (id: string): Product | undefined => {
 export const getRelatedProducts = (productId: string, limit: number = 4): Product[] => {
   const currentProduct = getProductById(productId);
   if (!currentProduct) return [];
-  
+
   return products
     .filter(p => p.category === currentProduct.category && p.id !== productId)
     .slice(0, limit);
@@ -1413,12 +1431,12 @@ export const getTopSellingProducts = (limit: number = 3): Product[] => {
 // Get all unique categories
 export const getCategories = (): { name: string; count: number }[] => {
   const categoryMap = new Map<string, number>();
-  
+
   products.forEach(product => {
     const count = categoryMap.get(product.category) || 0;
     categoryMap.set(product.category, count + 1);
   });
-  
+
   return Array.from(categoryMap.entries()).map(([name, count]) => ({
     name,
     count

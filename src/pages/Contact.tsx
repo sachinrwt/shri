@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import Newsletter from "@/components/shared/Newsletter";
@@ -9,6 +10,29 @@ import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
 import contactGanesh from "@/assets/contact/ganesh-contact.jpg";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoUrl = `mailto:shrisaimarketing@gmail.com?subject=${encodeURIComponent(
+      formData.subject || "Contact Inquiry"
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.firstName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )}`;
+    window.location.href = mailtoUrl;
+  };
+
   const inquiryTypes = [
     { number: "01", title: "Visit Feedback", description: "Share your experience with Shri Sai Marketing and help us improve our services. Your feedback helps us serve devotees better with quality products and reliable support." },
     { number: "02", title: "Product & Order Support", description: "Get quick assistance related to product details, availability, pricing, bulk orders, and order status for all our devotional and pooja items." },
@@ -28,15 +52,15 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-primary font-medium mb-2">How can help you ?</p>
+              <p className="text-primary font-medium mb-2">How can we help you ?</p>
               <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
                 Let us know how we can help you
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                
+
               </p>
               <p className="text-muted-foreground leading-relaxed">
-              At Shri Sai Marketing, we are dedicated to helping you find authentic devotional and pooja essentials for your daily worship and special religious occasions. Whether you are looking for idols, pooja samagri, car dashboard idols, dresses for deities, or spiritual accessories, our team is always ready to assist you with the right guidance and support.
+                At Shri Sai Marketing, we are dedicated to helping you find authentic devotional and pooja essentials for your daily worship and special religious occasions. Whether you are looking for idols, pooja samagri, car dashboard idols, dresses for deities, or spiritual accessories, our team is always ready to assist you with the right guidance and support.
               </p>
             </div>
 
@@ -68,7 +92,7 @@ const Contact = () => {
                 <p className="text-muted-foreground">Av-6, Pitampura</p>
                 <p className="text-muted-foreground">New Delhi - 110088, Delhi, India</p>
               </div>
-              
+
               <Button className="mt-6 bg-primary hover:bg-primary/90 text-white gap-2">
                 <MapPin className="w-4 h-4" />
                 View map
@@ -104,27 +128,64 @@ const Contact = () => {
                 Your email address will not be published. Required fields are marked *
               </p>
 
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input placeholder="First Name" className="form-input" />
-                  <Input placeholder="Your Email" type="email" className="form-input" />
+                  <Input
+                    name="firstName"
+                    placeholder="First Name"
+                    className="form-input"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Input
+                    name="email"
+                    placeholder="Your Email"
+                    type="email"
+                    className="form-input"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input placeholder="Your Phone" type="tel" className="form-input" />
-                  <Input placeholder="Subject" className="form-input" />
+                  <Input
+                    name="phone"
+                    placeholder="Your Phone"
+                    type="tel"
+                    className="form-input"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Input
+                    name="subject"
+                    placeholder="Subject"
+                    className="form-input"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
-                <Textarea 
-                  placeholder="Your message..." 
-                  className="form-input min-h-[150px]" 
+                <Textarea
+                  name="message"
+                  placeholder="Your message..."
+                  className="form-input min-h-[150px]"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                 />
-                <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6">
+                <Button
+                  type="submit"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-6"
+                >
                   Send message
                 </Button>
               </form>
             </div>
 
             {/* Image */}
-            <div className="flex justify-center">
+            <div className="hidden md:flex justify-center">
               <img
                 src={contactGanesh}
                 alt="Contact us"

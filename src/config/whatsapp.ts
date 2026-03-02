@@ -12,6 +12,7 @@ export interface WhatsAppOrderData {
   price: number;
   quantity: number;
   productUrl: string;
+  imageUrl: string;
   unit?: string;
   size?: string;
   variant?: string;
@@ -23,6 +24,7 @@ export const generateWhatsAppOrderUrl = (data: WhatsAppOrderData): string => {
     price,
     quantity,
     productUrl,
+    imageUrl,
     unit = "",
     size,
     variant,
@@ -33,20 +35,21 @@ export const generateWhatsAppOrderUrl = (data: WhatsAppOrderData): string => {
   message += `Product Name: ${productName}\n`;
   message += `Price: ₹${price.toFixed(2)}${unit ? `/${unit}` : ""}\n`;
   message += `Quantity: ${quantity}\n`;
-  
+
   if (size) {
     message += `Size: ${size}\n`;
   }
-  
+
   if (variant) {
     message += `Variant: ${variant}\n`;
   }
-  
-  message += `\nProduct Link: ${productUrl}`;
+
+  message += `\nProduct Link: ${productUrl}\n`;
+  message += `View Image: ${window.location.origin}${imageUrl}`;
 
   // Encode the message for URL
   const encodedMessage = encodeURIComponent(message);
-  
+
   // Generate WhatsApp URL
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
 };

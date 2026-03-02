@@ -20,7 +20,7 @@ const CategoryCard = ({ name, image, itemCount, link = "/shop" }: CategoryCardPr
       <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
         {name}
       </h3>
-      <p className="text-xs text-muted-foreground">{itemCount} Items</p>
+      <p className="text-xs text-muted-foreground">{itemCount} Shop</p>
     </Link>
   );
 };

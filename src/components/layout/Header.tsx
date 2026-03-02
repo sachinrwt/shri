@@ -10,12 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { wishlistIds } = useWishlist();
+  const { totalItems } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
 
   const isActive = (path: string) => location.pathname === path;
@@ -23,7 +25,7 @@ const Header = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Shop", path: "/shop"},
+    { name: "Shop", path: "/shop" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -49,9 +51,9 @@ const Header = () => {
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img 
-              src="/apple-touch-icon.png" 
-              alt="Shri Sai Marketing Logo" 
+            <img
+              src="/apple-touch-icon.png"
+              alt="Shri Sai Marketing Logo"
               className="w-10 h-10 object-contain"
             />
             <span className="text-xl font-semibold text-foreground">
@@ -96,14 +98,20 @@ const Header = () => {
                 </span>
               )}
             </Link>
-            {/* <button className="flex items-center gap-2 text-foreground hover:text-primary transition-colors relative">
+
+            <Link
+              to="/cart"
+              className="flex items-center gap-2 text-foreground hover:text-primary transition-colors relative"
+            >
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
-                0
-              </span>
               <span className="hidden lg:inline text-sm">Cart</span>
-            </button> */}
-            
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-3 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+
             {/* Mobile Menu Toggle */}
             <button
               className="md:hidden"
@@ -119,25 +127,52 @@ const Header = () => {
       <nav className="bg-white border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            {/* Browse Categories Button */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="bg-primary hover:bg-primary/90 text-white gap-2">
-                  <Menu className="w-4 h-4" />
-                  Browse All Categories
-                  <ChevronDown className="w-4 h-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                {categories.map((category) => (
-                  <DropdownMenuItem key={category} asChild>
-                    <Link to={`/shop?category=${encodeURIComponent(category)}`}>{category}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="flex items-center gap-3">
+              {/* Browse Categories Button */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="bg-primary hover:bg-primary/90 text-white gap-2">
+                    <Menu className="w-4 h-4" />
+                    Categories
+                    <ChevronDown className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  {categories.map((category) => (
+                    <DropdownMenuItem key={category} asChild>
+                      <Link to={`/shop?category=${encodeURIComponent(category)}`}>{category}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
 
-           
+            {/* Wishlist Mobile */}
+            <Link
+              to="/wishlist"
+              className="flex sm:hidden items-center text-foreground hover:text-primary transition-colors relative"
+            >
+              <Heart className="w-6 h-6" />
+              {wishlistIds.length > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-[10px] rounded-full flex items-center justify-center">
+                  {wishlistIds.length}
+                </span>
+              )}
+            </Link>
+
+            <Link
+              to="/cart"
+              className="flex sm:hidden items-center text-foreground hover:text-primary transition-colors relative"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-[10px] rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+
+
 
             {/* Navigation Links - Desktop */}
             <div className="hidden md:flex items-center gap-6">
@@ -145,11 +180,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium transition-colors ${
-                    isActive(item.path)
-                      ? "text-primary"
-                      : "text-foreground hover:text-primary"
-                  }`}
+                  className={`font-medium transition-colors ${isActive(item.path)
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -162,8 +196,8 @@ const Header = () => {
                 <Phone className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-primary font-semibold">1900888123</p>
-                <p className="text-xs text-muted-foreground">24/7 Support Center</p>
+                <p className="text-primary font-semibold">9312641843</p>
+                <p className="text-xs text-muted-foreground">24/7 Support</p>
               </div>
             </div>
           </div>
@@ -171,57 +205,58 @@ const Header = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-border">
-          <div className="container mx-auto px-4 py-4">
-            {/* Mobile Search */}
-            <div className="relative mb-4">
-              <Input
-                type="text"
-                placeholder="Search for products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSearch();
-                }}
-                className="w-full pl-4 pr-12"
-              />
-              <Button
-                size="sm"
-                onClick={handleSearch}
-                className="absolute right-1 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary/90"
-              >
-                <Search className="w-4 h-4" />
-              </Button>
-            </div>
+      {
+        isMenuOpen && (
+          <div className="md:hidden bg-white border-b border-border">
+            <div className="container mx-auto px-4 py-4">
+              {/* Mobile Search */}
+              <div className="relative mb-4">
+                <Input
+                  type="text"
+                  placeholder="Search for products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSearch();
+                  }}
+                  className="w-full pl-4 pr-12"
+                />
+                <Button
+                  size="sm"
+                  onClick={handleSearch}
+                  className="absolute right-1 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary/90"
+                >
+                  <Search className="w-4 h-4" />
+                </Button>
+              </div>
 
-            {/* Mobile Nav Links */}
-            <div className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`py-2 px-4 rounded-lg font-medium transition-colors ${
-                    isActive(item.path)
+              {/* Mobile Nav Links */}
+              <div className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`py-2 px-4 rounded-lg font-medium transition-colors ${isActive(item.path)
                       ? "bg-primary text-white"
                       : "text-foreground hover:bg-accent"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+                      }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
 
-            {/* Mobile Phone */}
-            <div className="mt-4 pt-4 border-t border-border flex items-center gap-2">
-              <Phone className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold">1900888123</span>
+              {/* Mobile Phone */}
+              <div className="mt-4 pt-4 border-t border-border flex items-center gap-2">
+                <Phone className="w-5 h-5 text-primary" />
+                <span className="text-primary font-semibold">9312641843</span>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )
+      }
+    </header >
   );
 };
 

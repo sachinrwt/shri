@@ -9,25 +9,30 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, MessageCircle, Minus, Plus, Star } from "lucide-react";
-import { 
-  getProductById, 
-  getRelatedProducts, 
-  getTopSellingProducts, 
+import {
+  getProductById,
+  getRelatedProducts,
+  getTopSellingProducts,
   getCategories,
-  Product 
+  Product
 } from "@/data/products";
 import { generateWhatsAppOrderUrl } from "@/config/whatsapp";
 import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
+import { ShoppingCart } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isWishlisted, toggleWishlist } = useWishlist();
+  const { addToCart } = useCart();
+  const { toast } = useToast();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColour, setSelectedColour] = useState("");
   const [mainImage, setMainImage] = useState("");
-  
+
   // Generate WhatsApp order URL
   const getWhatsAppUrl = () => {
     if (!product) return "";
@@ -37,14 +42,19 @@ const ProductDetails = () => {
       price: product.price,
       quantity,
       productUrl,
+      imageUrl: mainImage,
       unit: product.unit,
       size: selectedSize || undefined,
       variant: selectedColour || undefined,
     });
   };
-  
+
   const handleWhatsAppOrder = () => {
     window.open(getWhatsAppUrl(), "_blank");
+    toast({
+      title: "Order Request Sent",
+      description: "You have been redirected to WhatsApp to complete your order.",
+    });
   };
 
   const product = id ? getProductById(id) : undefined;
@@ -79,7 +89,7 @@ const ProductDetails = () => {
       {/* Breadcrumb */}
       <div className="container mx-auto px-4">
         <Breadcrumb items={[
-          { label: "Shop", path: "/shop" }, 
+          { label: "Shop", path: "/shop" },
           { label: product.category }
         ]} />
       </div>
@@ -102,9 +112,8 @@ const ProductDetails = () => {
                   <button
                     key={index}
                     onClick={() => setMainImage(thumb)}
-                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${
-                      mainImage === thumb ? "border-primary" : "border-border"
-                    }`}
+                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${mainImage === thumb ? "border-primary" : "border-border"
+                      }`}
                   >
                     <img src={thumb} alt="" className="w-full h-full object-cover" />
                   </button>
@@ -119,7 +128,7 @@ const ProductDetails = () => {
                   {product.badge === "hot" ? "Hot" : product.badge === "new" ? "New" : `${product.badge} Off`}
                 </span>
               )}
-              
+
               <h1 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
                 {product.name}
               </h1>
@@ -129,15 +138,14 @@ const ProductDetails = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
-                        i < Math.floor(product.rating)
-                          ? "text-yellow-400 fill-yellow-400"
-                          : "text-muted-foreground"
-                      }`}
+                      className={`w-4 h-4 ${i < Math.floor(product.rating)
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-muted-foreground"
+                        }`}
                     />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground">({product.reviews} reviews)</span>
+                <span className="text-sm text-muted-foreground">reviews</span>
               </div>
 
               <div className="text-3xl font-bold text-primary mb-4">
@@ -157,11 +165,10 @@ const ProductDetails = () => {
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 rounded-lg border ${
-                          selectedSize === size
-                            ? "border-primary bg-primary text-white"
-                            : "border-border hover:border-primary"
-                        }`}
+                        className={`px-4 py-2 rounded-lg border ${selectedSize === size
+                          ? "border-primary bg-primary text-white"
+                          : "border-border hover:border-primary"
+                          }`}
                       >
                         {size}
                       </button>
@@ -179,11 +186,10 @@ const ProductDetails = () => {
                       <button
                         key={colour}
                         onClick={() => setSelectedColour(colour)}
-                        className={`px-4 py-2 rounded-lg border ${
-                          selectedColour === colour
-                            ? "border-primary bg-primary text-white"
-                            : "border-border hover:border-primary"
-                        }`}
+                        className={`px-4 py-2 rounded-lg border ${selectedColour === colour
+                          ? "border-primary bg-primary text-white"
+                          : "border-border hover:border-primary"
+                          }`}
                       >
                         {colour}
                       </button>
@@ -193,41 +199,53 @@ const ProductDetails = () => {
               )}
 
               {/* Quantity & Add to Cart */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center border border-border rounded-lg">
+              <div className="space-y-4 mb-6">
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="flex items-center border border-border rounded-lg bg-card">
+                    <button
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="p-3 hover:bg-muted transition-colors rounded-l-lg"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="px-6 font-medium text-lg min-w-[3rem] text-center">{quantity}</span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="p-3 hover:bg-muted transition-colors rounded-r-lg"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+
                   <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-3 hover:bg-muted"
+                    onClick={() => product && toggleWishlist(product.id)}
+                    className={`p-3 border rounded-lg transition-all flex-shrink-0 ${product && isWishlisted(product.id)
+                      ? "border-primary bg-primary text-white shadow-md scale-105"
+                      : "border-border hover:border-primary hover:text-primary bg-white"
+                      }`}
+                    title={product && isWishlisted(product.id) ? "Remove from wishlist" : "Add to wishlist"}
                   >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="px-4 font-medium">{quantity}</span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="p-3 hover:bg-muted"
-                  >
-                    <Plus className="w-4 h-4" />
+                    <Heart className={`w-5 h-5 ${product && isWishlisted(product.id) ? "fill-current" : ""}`} />
                   </button>
                 </div>
 
-                <Button 
-                  onClick={handleWhatsAppOrder}
-                  className="flex-1 bg-primary hover:bg-primary/90 text-white gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Order on WhatsApp
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => product && addToCart(product, quantity)}
+                    className="flex-1 h-12 bg-secondary hover:bg-secondary/90 text-secondary-foreground gap-2 font-medium"
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    Add to Cart
+                  </Button>
 
-                <button 
-                  onClick={() => product && toggleWishlist(product.id)}
-                  className={`p-3 border rounded-lg transition-colors ${
-                    product && isWishlisted(product.id)
-                      ? "border-primary bg-primary text-white"
-                      : "border-border hover:border-primary hover:text-primary"
-                  }`}
-                >
-                  <Heart className={`w-5 h-5 ${product && isWishlisted(product.id) ? "fill-current" : ""}`} />
-                </button>
+                  <Button
+                    onClick={handleWhatsAppOrder}
+                    className="flex-1 h-12 bg-primary hover:bg-primary/90 text-white gap-2 font-medium"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Order on WhatsApp
+                  </Button>
+                </div>
               </div>
 
               {/* Product Meta */}
@@ -268,7 +286,7 @@ const ProductDetails = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="hidden lg:block lg:col-span-3 space-y-6">
               {/* Categories */}
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-foreground mb-4">Category</h3>
@@ -298,7 +316,7 @@ const ProductDetails = () => {
                 <ul className="space-y-4">
                   {topSelling.map((item) => (
                     <li key={item.id}>
-                      <Link 
+                      <Link
                         to={`/product/${item.id}`}
                         className="flex items-center gap-3 hover:bg-accent rounded-lg p-1 transition-colors"
                       >
@@ -325,90 +343,100 @@ const ProductDetails = () => {
       <section className="py-8 bg-muted/30">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="description" className="w-full">
-            <TabsList className="mb-6">
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="additional">Additional info</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews ({product.reviews})</TabsTrigger>
-            </TabsList>
+            <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6">
+              <TabsList className="w-full sm:w-auto h-auto p-1 bg-muted/50 inline-flex sm:flex">
+                <TabsTrigger value="description" className="flex-1 sm:flex-none">Description</TabsTrigger>
+                <TabsTrigger value="additional" className="flex-1 sm:flex-none">Additional info</TabsTrigger>
+                <TabsTrigger value="reviews" className="flex-1 sm:flex-none">Reviews</TabsTrigger>
+              </TabsList>
+            </div>
 
-            <TabsContent value="description" className="bg-white rounded-xl p-6">
+            <TabsContent value="description" className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-border/50">
               {/* Introduction Paragraphs */}
               {product.fullDescription.intro.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground leading-relaxed mb-4">
+                <p key={index} className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   {paragraph}
                 </p>
               ))}
 
-              <h4 className="font-semibold text-foreground mt-6 mb-2">Packaging & Delivery</h4>
-              <ul className="text-muted-foreground text-sm space-y-1">
-                <li>Packaging Type: {product.fullDescription.packaging.type}</li>
-                <li>Piece In One Carton: {product.fullDescription.packaging.piecesPerCarton}</li>
-                <li>Minimum Order Quantity: {product.fullDescription.packaging.moq}</li>
-                <li>Handling: {product.fullDescription.packaging.handling}</li>
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Packaging & Delivery
+                  </h4>
+                  <ul className="text-muted-foreground text-sm space-y-2 pl-3.5 border-l-2 border-primary/10">
+                    <li><span className="font-medium text-foreground/80">Packaging:</span> {product.fullDescription.packaging.type}</li>
+                    <li><span className="font-medium text-foreground/80">Carton Size:</span> {product.fullDescription.packaging.piecesPerCarton}</li>
+                    <li><span className="font-medium text-foreground/80">Min Order:</span> {product.fullDescription.packaging.moq}</li>
+                    <li><span className="font-medium text-foreground/80">Handling:</span> {product.fullDescription.packaging.handling}</li>
+                  </ul>
+                </div>
 
-              <h4 className="font-semibold text-foreground mt-6 mb-2">Suggested Use</h4>
-              <ul className="text-muted-foreground text-sm space-y-1">
-                {product.fullDescription.suggestedUse.map((use, index) => (
-                  <li key={index}>{use}</li>
-                ))}
-              </ul>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Suggested Use
+                  </h4>
+                  <ul className="text-muted-foreground text-sm space-y-2 pl-3.5 border-l-2 border-primary/10">
+                    {product.fullDescription.suggestedUse.map((use, index) => (
+                      <li key={index}>{use}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-              <h4 className="font-semibold text-foreground mt-6 mb-2">Care Instructions & Warnings</h4>
-              <ul className="text-muted-foreground text-sm space-y-1">
-                {product.fullDescription.careInstructions.map((instruction, index) => (
-                  <li key={index}>{instruction}</li>
-                ))}
-              </ul>
+              <div className="mt-8">
+                <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Care Instructions & Warnings
+                </h4>
+                <div className="bg-orange-50/50 rounded-lg p-4 border border-orange-100">
+                  <ul className="text-muted-foreground text-sm space-y-2">
+                    {product.fullDescription.careInstructions.map((instruction, index) => (
+                      <li key={index} className="flex gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        {instruction}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </TabsContent>
 
-            <TabsContent value="additional" className="bg-white rounded-xl p-6">
-              <table className="w-full text-sm">
-                <tbody>
-                  <tr className="border-b">
-                    <td className="py-2 text-muted-foreground">Material</td>
-                    <td className="py-2 font-medium">{product.attributes.material}</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 text-muted-foreground">Finish</td>
-                    <td className="py-2 font-medium">{product.attributes.finish}</td>
-                  </tr>
-                  {product.attributes.position && (
-                    <tr className="border-b">
-                      <td className="py-2 text-muted-foreground">Position</td>
-                      <td className="py-2 font-medium">{product.attributes.position}</td>
-                    </tr>
-                  )}
-                  {product.attributes.size && (
-                    <tr className="border-b">
-                      <td className="py-2 text-muted-foreground">Size</td>
-                      <td className="py-2 font-medium">{product.attributes.size}</td>
-                    </tr>
-                  )}
-                  {product.attributes.weight && (
-                    <tr className="border-b">
-                      <td className="py-2 text-muted-foreground">Weight</td>
-                      <td className="py-2 font-medium">{product.attributes.weight}</td>
-                    </tr>
-                  )}
-                  <tr className="border-b">
-                    <td className="py-2 text-muted-foreground">Usage/Application</td>
-                    <td className="py-2 font-medium">{product.attributes.usage}</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 text-muted-foreground">SKU</td>
-                    <td className="py-2 font-medium">{product.sku}</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 text-muted-foreground">MOQ</td>
-                    <td className="py-2 font-medium">{product.MOQ}</td>
-                  </tr>
-                </tbody>
-              </table>
+            <TabsContent value="additional" className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-border/50">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {[
+                      { label: "Material", value: product.attributes.material },
+                      { label: "Finish", value: product.attributes.finish },
+                      { label: "Position", value: product.attributes.position },
+                      { label: "Size", value: product.attributes.size },
+                      { label: "Weight", value: product.attributes.weight },
+                      { label: "Usage", value: product.attributes.usage },
+                      { label: "SKU", value: product.sku },
+                      { label: "MOQ", value: product.MOQ },
+                    ].filter(item => item.value).map((item, index, array) => (
+                      <tr key={item.label} className={index !== array.length - 1 ? "border-b border-border/50" : ""}>
+                        <td className="py-3 text-muted-foreground font-medium pb-2 pr-4">{item.label}</td>
+                        <td className="py-3 font-semibold text-foreground">{item.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </TabsContent>
 
-            <TabsContent value="reviews" className="bg-white rounded-xl p-6">
-              <p className="text-muted-foreground">No reviews yet. Be the first to review this product!</p>
+            <TabsContent value="reviews" className="bg-white rounded-xl p-8 shadow-sm border border-border/50 text-center">
+              <div className="max-w-xs mx-auto">
+                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-muted-foreground opacity-20" />
+                </div>
+                <h4 className="font-semibold mb-1">No reviews yet</h4>
+                <p className="text-muted-foreground text-sm">Be the first to review this product!</p>
+                <Button variant="outline" className="mt-6 w-full">Write a Review</Button>
+              </div>
             </TabsContent>
           </Tabs>
         </div>
@@ -422,8 +450,8 @@ const ProductDetails = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {relatedProducts.map((relatedProduct) => (
-                <ProductCard 
-                  key={relatedProduct.id} 
+                <ProductCard
+                  key={relatedProduct.id}
                   id={relatedProduct.id}
                   name={relatedProduct.name}
                   price={relatedProduct.price}

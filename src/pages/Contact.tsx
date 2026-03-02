@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import Newsletter from "@/components/shared/Newsletter";
@@ -18,19 +20,53 @@ const Contact = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:shrisaimarketing@gmail.com?subject=${encodeURIComponent(
-      formData.subject || "Contact Inquiry"
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.firstName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoUrl;
+    setIsSubmitting(true);
+
+    try {
+      // Formspree requires a Form ID (hash). Since we don't have one yet, 
+      // we'll use the email directly. Formspree will send a confirmation email to verify this form.
+      // Once verified, it will work perfectly.
+      const response = await fetch("https://formspree.io/f/shrisaimarketingdelhi@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        setFormData({
+          firstName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          toast.error(data.errors.map((error: any) => error.message).join(", "));
+        } else {
+          throw new Error("Form submission failed");
+        }
+      }
+    } catch (error) {
+      toast.error("Oops! There was a problem sending your message. Please try again.");
+      console.error("Form error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inquiryTypes = [
@@ -178,8 +214,16 @@ const Contact = () => {
                 <Button
                   type="submit"
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-6"
+                  disabled={isSubmitting}
                 >
-                  Send message
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send message"
+                  )}
                 </Button>
               </form>
             </div>

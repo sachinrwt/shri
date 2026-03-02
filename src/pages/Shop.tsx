@@ -20,7 +20,7 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high" | "newest">("featured");
-  
+
   // Read filters from URL params on mount and when they change
   useEffect(() => {
     const categoryParam = searchParams.get("category");
@@ -33,7 +33,7 @@ const Shop = () => {
     const qParam = searchParams.get("q");
     setSearchQuery(qParam ?? "");
   }, [searchParams]);
-  
+
   // Update URL when category is selected from sidebar
   const handleCategorySelect = (category: string | null) => {
     setSelectedCategory(category);
@@ -44,7 +44,7 @@ const Shop = () => {
       replace: true,
     });
   };
-  
+
   const categories = getCategories();
   const newProducts = getTopSellingProducts(3);
 
@@ -55,8 +55,8 @@ const Shop = () => {
     return products.filter((p) => {
       const matchesQuery = q
         ? `${p.name} ${p.category} ${p.subcategory ?? ""} ${p.shortDescription}`
-            .toLowerCase()
-            .includes(q)
+          .toLowerCase()
+          .includes(q)
         : true;
 
       // If searching, don't further restrict by category to avoid hiding items from other categories.
@@ -104,9 +104,29 @@ const Shop = () => {
       </div>
 
       <div className="container mx-auto px-4 pb-12">
+        {/* Mobile Category Dropdown */}
+        <div className="lg:hidden mb-6">
+          <Select
+            value={selectedCategory || "all"}
+            onValueChange={(v) => handleCategorySelect(v === "all" ? null : v)}
+          >
+            <SelectTrigger className="w-full bg-white">
+              <SelectValue placeholder="Select Category" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Products</SelectItem>
+              {categories.map((category) => (
+                <SelectItem key={category.name} value={category.name}>
+                  {category.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar */}
-          <aside className="lg:w-64 flex-shrink-0">
+          {/* Sidebar - Hidden on mobile */}
+          <aside className="hidden lg:block lg:w-64 flex-shrink-0">
             {/* Categories */}
             <div className="bg-white rounded-xl p-6 shadow-sm mb-6">
               <h3 className="text-lg font-semibold text-foreground mb-4">Category</h3>
@@ -114,19 +134,17 @@ const Shop = () => {
                 <li>
                   <button
                     onClick={() => handleCategorySelect(null)}
-                    className={`w-full category-sidebar-item ${
-                      selectedCategory === null ? "category-sidebar-item-active" : ""
-                    }`}
+                    className={`w-full category-sidebar-item ${selectedCategory === null ? "category-sidebar-item-active" : ""
+                      }`}
                   >
                     <span className="flex items-center gap-2">
                       <span className="text-lg">📿</span>
                       All Products
                     </span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${
-                      selectedCategory === null 
-                        ? "bg-white/20" 
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${selectedCategory === null
+                        ? "bg-white/20"
                         : "bg-primary text-white"
-                    }`}>
+                      }`}>
                       {products.length}
                     </span>
                   </button>
@@ -135,19 +153,17 @@ const Shop = () => {
                   <li key={category.name}>
                     <button
                       onClick={() => handleCategorySelect(category.name)}
-                      className={`w-full category-sidebar-item ${
-                        selectedCategory === category.name ? "category-sidebar-item-active" : ""
-                      }`}
+                      className={`w-full category-sidebar-item ${selectedCategory === category.name ? "category-sidebar-item-active" : ""
+                        }`}
                     >
                       <span className="flex items-center gap-2">
                         <span className="text-lg">📿</span>
                         {category.name}
                       </span>
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${
-                        selectedCategory === category.name 
-                          ? "bg-white/20" 
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${selectedCategory === category.name
+                          ? "bg-white/20"
                           : "bg-primary text-white"
-                      }`}>
+                        }`}>
                         {category.count}
                       </span>
                     </button>
@@ -162,7 +178,7 @@ const Shop = () => {
               <ul className="space-y-4">
                 {newProducts.map((product) => (
                   <li key={product.id}>
-                    <Link 
+                    <Link
                       to={`/product/${product.id}`}
                       className="flex items-center gap-3 hover:bg-accent rounded-lg p-1 transition-colors"
                     >
@@ -191,7 +207,7 @@ const Shop = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                
+
 
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-muted-foreground">Sort by:</span>
@@ -208,15 +224,15 @@ const Shop = () => {
                   </Select>
                 </div>
 
-                
+
               </div>
             </div>
 
             {/* Products Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {sortedProducts.map((product) => (
-                <ProductCard 
-                  key={product.id} 
+                <ProductCard
+                  key={product.id}
                   id={product.id}
                   name={product.name}
                   price={product.price}
@@ -227,7 +243,7 @@ const Shop = () => {
               ))}
             </div>
 
-            
+
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <p className="text-sm text-gray-400">Call Us: <span className="text-primary">07942818130</span></p>
+                <p className="text-sm text-gray-400">Call Us: <span className="text-primary">9312641843</span></p>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
@@ -85,9 +85,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">S</span>
-              </div>
+              <img src="/apple-touch-icon.png" alt="Logo" className="w-12 h-12 object-contain" />
               <div>
                 <h4 className="font-semibold">Shri Sai Marketing</h4>
               </div>
@@ -120,15 +118,15 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-primary" />
                 <div>
-                  <p className="text-primary font-semibold">1900646666</p>
-                  <p className="text-xs text-gray-400">Working 8:00 - 22:00</p>
+                  <p className="text-primary font-semibold">7942818130</p>
+
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-primary" />
                 <div>
-                  <p className="text-primary font-semibold">1900648888</p>
-                  <p className="text-xs text-gray-400">24/7 Support Center</p>
+                  <p className="text-primary font-semibold">9312641843</p>
+                  <p className="text-xs text-gray-400">24/7 Support</p>
                 </div>
               </div>
             </div>

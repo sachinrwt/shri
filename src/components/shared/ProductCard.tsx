@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingBag } from "lucide-react";
 import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
+import { getProductById } from "@/data/products";
 
 interface ProductCardProps {
   id: string;
@@ -24,6 +26,7 @@ const ProductCard = ({
   unit = "",
 }: ProductCardProps) => {
   const { isWishlisted, toggleWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
   const getBadgeClass = () => {
     switch (badge) {
@@ -50,6 +53,15 @@ const ProductCard = ({
     toggleWishlist(id);
   };
 
+  const handleAddToCart: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const product = getProductById(id);
+    if (product) {
+      addToCart(product, 1);
+    }
+  };
+
   return (
     <div className="product-card group">
       {/* Image Container */}
@@ -59,7 +71,7 @@ const ProductCard = ({
           alt={name}
           className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
         />
-        
+
         {/* Badge */}
         {(badge || badgeText || discountPercent) && (
           <span className={`product-badge ${getBadgeClass()}`}>
@@ -70,11 +82,10 @@ const ProductCard = ({
         {/* Wishlist Button */}
         <button
           onClick={handleWishlistClick}
-          className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-all ${
-            wishlisted
-              ? "bg-primary text-white"
-              : "bg-white text-foreground hover:bg-primary hover:text-white"
-          }`}
+          className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-all ${wishlisted
+            ? "bg-primary text-white"
+            : "bg-white text-foreground hover:bg-primary hover:text-white"
+            }`}
           aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
         >
           <Heart className="w-4 h-4" />
@@ -98,6 +109,14 @@ const ProductCard = ({
             <span className="price-original">₹ {originalPrice.toFixed(2)}</span>
           )}
         </div>
+
+        <button
+          onClick={handleAddToCart}
+          className="add-to-cart-btn mt-3 w-full justify-center"
+        >
+          <ShoppingBag className="w-4 h-4" />
+          Add to Cart
+        </button>
       </div>
     </div>
   );

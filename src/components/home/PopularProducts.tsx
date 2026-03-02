@@ -55,14 +55,13 @@ const PopularProducts = () => {
           <SectionTitle title="Popular Products" className="mb-4 md:mb-0" />
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`filter-tab ${
-                  activeFilter === filter ? "filter-tab-active" : ""
-                }`}
+                className={`filter-tab flex-shrink-0 ${activeFilter === filter ? "filter-tab-active" : ""
+                  }`}
               >
                 {filter}
               </button>
@@ -72,8 +71,8 @@ const PopularProducts = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {displayProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
+            <ProductCard
+              key={product.id}
               id={product.id}
               name={product.name}
               price={product.price}
